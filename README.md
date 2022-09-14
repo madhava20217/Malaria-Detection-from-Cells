@@ -29,4 +29,8 @@ Automation of the diagnosis process will guarntee accurate diagnosis and, as a r
 
 # Project Proposal
 
-<object data = 'Project_proposal_group_17.pdf' type = 'application/pdf' width = '100%'></object>
+<object data="Project_proposal_group_17.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="Project_proposal_group_17.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="Project_proposal_group_17.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
