@@ -23,3 +23,10 @@ Malaria is a life-threatening disease affecting many people wordwide, spread by 
 ## Suggested Outcomes
 
 Automation of the diagnosis process will guarntee accurate diagnosis and, as a result, holds the possibility of providing dependable healthcare to places with limited resources. We aim to implement various algorithms for classification while attempting to find optimal parameters for optimising training time, computational complexity and performance. We will attempt transformations and feature engineering and extraction on the dataset. We are going to apply various machine learning models such as SVMs, logistic regression, decision trees, random forest, and compare the performance of all models. We intend to also attempt grayscale conversion and observe the change in behavior of the models.
+
+<hr>
+<hr>
+
+# Project Proposal
+
+<object data = 'Project_proposal_group_17.pdf' type = 'application/pdf' width = '100%'></object>
