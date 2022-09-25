@@ -1,5 +1,14 @@
 # Malaria Detection using Cell Images
 
+## How to Run the Code
+
+- Prepare the data by using the data_download.ipynb notebook found in the 'Data Download' directory.
+  - Tune the required height and width (parameters at the top of the notebook)
+  - The output should create a Data directory containing the original cell images, and a Resized_data_<width><height> directory, containing the resized images.
+- Label the data using the labelling.ipynb notebook found in the 'Data Labelling' directory.
+  - It will save a CSV of relative filenames and labels in the specified directory.
+
+
 ## Contributors
 <ol>
     <li>Srishti Singh, srishti20409@iiitd.ac.in</li>
