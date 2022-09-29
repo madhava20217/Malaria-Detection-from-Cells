@@ -7,6 +7,8 @@
   - The output should create a Data directory containing the original cell images, and a Resized_data_<width><height> directory, containing the resized images.
 - Label the data using the labelling.ipynb notebook found in the 'Data Labelling' directory.
   - It will save a CSV of relative filenames and labels in the specified directory.
+- Create train and test splits using train_test_split.ipynb
+- Modeling scripts are in the 'Modeling' directory.
 
 
 ## Contributors
@@ -24,7 +26,7 @@ Malaria is a life-threatening disease affecting many people wordwide, spread by 
 ## Related Work
 
 <ul>
-    <li>Pan, et al. (2018) created a model based on deep CNN architectures. They were abel to obtain accuracies of over 90% on the training and validation samples using data augmentation.</li>
+    <li>Pan, et al. (2018) created a model based on deep CNN architectures. They were able to obtain accuracies of over 90% on the training and validation samples using data augmentation.</li>
     <li>Raihan and Nahid (2021) created a model based on boosted trees with feature engineering and determined feature importance using Shapely Additive Explanations (SHAP).</li>
     <li>Fuhad et al. (2020) implemented a CNN based model with accuracy over 99% while being computationally efficient.</li>
 </ul>
@@ -33,7 +35,6 @@ Malaria is a life-threatening disease affecting many people wordwide, spread by 
 
 Automation of the diagnosis process will guarntee accurate diagnosis and, as a result, holds the possibility of providing dependable healthcare to places with limited resources. We aim to implement various algorithms for classification while attempting to find optimal parameters for optimising training time, computational complexity and performance. We will attempt transformations and feature engineering and extraction on the dataset. We are going to apply various machine learning models such as SVMs, logistic regression, decision trees, random forest, and compare the performance of all models. We intend to also attempt grayscale conversion and observe the change in behavior of the models.
 
-<hr>
 <hr>
 
 # Project Proposal
