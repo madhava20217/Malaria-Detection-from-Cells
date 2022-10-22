@@ -1,0 +1,8 @@
+opendatasets
+pandas
+numpy
+matplotlib
+seaborn
+scikit-image
+opencv-python
+py-xgboost
