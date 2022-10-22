@@ -56,6 +56,7 @@ class Data_Download:
                             resized)
         
         print("Images resized to {} x {}".format(new_height, new_width))
+        print("Directory path is {}".format(resized_dir))
 
     def remove_dataset(self):
         '''Removes the main dataset
