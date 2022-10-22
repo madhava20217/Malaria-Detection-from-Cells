@@ -61,7 +61,8 @@ class Labelling:
         4. test_split: ratio of samples for testing
         5. stratify: whether the splits should have the same distribution as the original dataset
         6. random_state: sets the seed for splitting
-        Returns: None
+
+        Returns: Tuple containing path to training CSV, validation CSV and testing CSV
         '''
 
         assert train_split > 0 and test_split >= 0
@@ -92,6 +93,12 @@ class Labelling:
         val_df = pd.DataFrame(val)
         val_df.reset_index(drop = True, inplace = True)
 
-        train_df.to_csv(os.path.join(directory, 'train.csv'), index = False)
-        test_df.to_csv(os.path.join(directory, 'test.csv'), index = False)
-        val_df.to_csv(os.path.join(directory, 'val.csv'), index = False)
+        train_dir = os.path.join(directory, 'train.csv')
+        test_dir = os.path.join(directory, 'test.csv')
+        val_dir = os.path.join(directory, 'val.csv')
+
+        train_df.to_csv(train_dir, index = False)
+        test_df.to_csv(test_dir, index = False)
+        val_df.to_csv(val_dir, index = False)
+
+        return train_dir, val_dir, test_dir

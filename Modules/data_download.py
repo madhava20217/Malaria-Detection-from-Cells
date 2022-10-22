@@ -37,7 +37,7 @@ class Data_Download:
         2. new_width: new width after resizing
         3. new_height: new height after resizing
         
-        Returns: None (resizes images to the directory'''
+        Returns: path to dataset directory (resizes images to the directory)'''
         data_dir = os.path.join(self.data_path, 'cell-images-for-detecting-malaria', 'cell_images')
         resized_dir = os.path.join(path, "Resized_data_{}_{}".format(new_width, new_height))
 
@@ -57,6 +57,7 @@ class Data_Download:
         
         print("Images resized to {} x {}".format(new_height, new_width))
         print("Directory path is {}".format(resized_dir))
+        return resized_dir
 
     def remove_dataset(self):
         '''Removes the main dataset
