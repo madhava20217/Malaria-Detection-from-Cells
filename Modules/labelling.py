@@ -49,7 +49,7 @@ class Labelling:
                     train_split = 0.8, 
                     test_split = 0.1, 
                     stratify = True, 
-                    random_state = 12345
+                    random_state = 1234
                     ):
         '''Function to create training, testing and validation splits
         
@@ -67,7 +67,6 @@ class Labelling:
 
         assert train_split > 0 and test_split >= 0
         assert train_split <= 1 and test_split <= 1
-        assert train_split + test_split <= 1
         val_split_ratio = 1 - train_split - test_split
         df = pd.read_csv(os.path.join(directory, labels))
         train, test = train_test_split(df, 
@@ -81,6 +80,13 @@ class Labelling:
 
         test_df = pd.DataFrame(test)
         test_df.reset_index(drop = True, inplace = True)
+
+        if(train_split + test_split == 1):
+            train_dir = os.path.join(directory, 'train.csv')
+            test_dir = os.path.join(directory, 'test.csv')
+            train_df.to_csv(train_dir, index = False)
+            test_df.to_csv(test_dir, index = False)
+            return train_dir, None, test_dir
 
         train, val = train_test_split(train_df, 
                                 test_size = val_split_ratio/train_split,
