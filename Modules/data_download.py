@@ -30,7 +30,7 @@ class Data_Download:
             shutil.rmtree(os.path.join(self.data_path, 'cell-images-for-detecting-malaria', 'cell_images', 'cell_images'))
 
 
-    def resize_image(self, path, new_width, new_height, remove_misclassified = True):
+    def resize_image(self, path, new_width, new_height, remove_misclassified = False):
         '''Function for resizing images and storing them in the specified path
         
         Arguments:
@@ -38,6 +38,7 @@ class Data_Download:
         1. path: where to store the resized image, path to the main directory
         2. new_width: new width after resizing
         3. new_height: new height after resizing
+        4. remove_misclassified: whether to remove misclassified examples as per the study by Raihan et al. Experts found mislabeled examples in the dataset, which could be removed to not affect model training. The number of mislabeled examples are around 1400 in total, removal of which would still result in a large dataset.
         
         Returns: path to dataset directory (resizes images to the directory)'''
         data_dir = os.path.join(self.data_path, 'cell-images-for-detecting-malaria', 'cell_images')
@@ -67,7 +68,7 @@ class Data_Download:
                         img = cv2.imread(file)
                         resized = cv2.resize(img, (new_width, new_height))
                         cv2.imwrite(os.path.join(resized_dir_class,
-                                "{}x{}{}".format(new_width, new_height, fn)), 
+                                "{}".format(fn)), 
                             resized)
         
         print("Images resized to {} x {}".format(new_height, new_width))
