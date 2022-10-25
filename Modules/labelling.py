@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 class Labelling:
     '''Class for labelling a dataset'''
 
-    def label(self, directory, filename = 'labels.csv'):
+    def label(self, directory, filename = 'labels.csv', exclude_mislabeled = True):
         '''Function for labelling a dataset given a data directory
         
         Arguments:
@@ -37,9 +37,23 @@ class Labelling:
         file_list_parasitized = np.append(file_list_parasitized, np.ones(file_list_parasitized.shape), axis = 1)
         file_list_uninfected  = np.append(file_list_uninfected , np.zeros(file_list_uninfected.shape), axis = 1)
 
+
         file_list = np.append(file_list_uninfected, file_list_parasitized, axis = 0)
 
         df = pd.DataFrame(file_list, columns = ['Image_Path', 'Parasitized'])
+
+        #mislabeled removal
+        if exclude_mislabeled:
+            mislabeled_parasitized = pd.read_csv(os.path.join(os.path.dirname(__file__),'corrected_images','False_parasitized.csv'), index_col = 0)
+            mislabeled_uninfected  = pd.read_csv(os.path.join(os.path.dirname(__file__),'corrected_images','False_uninfected.csv'), index_col = 0)
+
+            mislabeled_parasitized['False_parasitized'] = mislabeled_parasitized['False_parasitized'].apply(lambda row: os.path.join(directory, 'Parasitized', row))
+
+            mislabeled_uninfected['False_uninfected'] = mislabeled_uninfected['False_uninfected'].apply(lambda row: os.path.join(directory, 'Uninfected', row))
+
+
+            df = df[~df.Image_Path.isin(mislabeled_parasitized.False_parasitized)]
+            df = df[~df.Image_Path.isin(mislabeled_uninfected.False_uninfected)]
 
         df.to_csv(os.path.join(directory, filename), index = False)
 
