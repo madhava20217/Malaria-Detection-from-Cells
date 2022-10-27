@@ -66,6 +66,7 @@ class Data_Download:
                             if (fn in false_infected or fn in false_uninfected):
                                 continue
                         img = cv2.imread(file)
+                        img = img[...,::-1]
                         resized = cv2.resize(img, (new_width, new_height))
                         cv2.imwrite(os.path.join(resized_dir_class,
                                 "{}".format(fn)), 
