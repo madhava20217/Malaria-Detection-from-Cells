@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  30 OCT 2022 21:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  30 OCT 2022 21:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -336,7 +336,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 51.
  (C:\Users\krish\AppData\Roaming\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [4321{C:/Users/krish/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+) [1{C:/Users/krish/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 
 ]
@@ -345,11 +345,11 @@ File: ../Plots/image_vis.png Graphic file (type png)
 <use ../Plots/image_vis.png>
 Package pdftex.def Info: ../Plots/image_vis.png  used on input line 96.
 (pdftex.def)             Requested size: 237.13594pt x 119.67839pt.
-<../Plots/Comparison between channels.png, id=31, 1084.05pt x 433.62pt>
+<../Plots/Comparison between channels.png, id=31, 1084.05pt x 235.88126pt>
 File: ../Plots/Comparison between channels.png Graphic file (type png)
 <use ../Plots/Comparison between channels.png>
 Package pdftex.def Info: ../Plots/Comparison between channels.png  used on input line 112.
-(pdftex.def)             Requested size: 237.13594pt x 94.85414pt.
+(pdftex.def)             Requested size: 237.13594pt x 51.59889pt.
 <../Plots/hsv_conversion.png, id=32, 1084.05pt x 433.62pt>
 File: ../Plots/hsv_conversion.png Graphic file (type png)
 <use ../Plots/hsv_conversion.png>
@@ -360,13 +360,13 @@ File: ../Plots/kmeans_natural labels.png Graphic file (type png)
 <use ../Plots/kmeans_natural labels.png>
 Package pdftex.def Info: ../Plots/kmeans_natural labels.png  used on input line 133.
 (pdftex.def)             Requested size: 237.13594pt x 120.9281pt.
- [4322 <../Plots/image_vis.png> <../Plots/Comparison between channels.png> <../Plots/hsv_conversion.png>]
+ [2 <../Plots/image_vis.png> <../Plots/Comparison between channels.png> <../Plots/hsv_conversion.png>]
 <../Plots/model_specifications.png, id=54, 278.54062pt x 356.83313pt>
 File: ../Plots/model_specifications.png Graphic file (type png)
 <use ../Plots/model_specifications.png>
 Package pdftex.def Info: ../Plots/model_specifications.png  used on input line 169.
 (pdftex.def)             Requested size: 237.13594pt x 303.7996pt.
- [4323 <../Plots/kmeans_natural labels.png> <../Plots/model_specifications.png>]
+ [3 <../Plots/kmeans_natural labels.png> <../Plots/model_specifications.png>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 183.
@@ -388,19 +388,19 @@ Underfull \hbox (badness 1412) in paragraph at lines 14--18
 []\OT1/ptm/m/n/9 M. Poost-chi, K. Sil-a-mut, R. J. Maude, S. Jaeger, and
  []
 
-[4324]) [4325
+[4]) [5
 
 ] (report.aux) ) 
 Here is how much of TeX's memory you used:
  10346 strings out of 478659
- 158992 string characters out of 2855778
- 481616 words of memory out of 3000000
+ 158977 string characters out of 2855778
+ 481601 words of memory out of 3000000
  28241 multiletter control sequences out of 15000+600000
  426424 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,9n,76p,876b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,9n,76p,876b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (5 pages, 1110563 bytes).
+Output written on report.pdf (5 pages, 1106041 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  47 named destinations out of 1000 (max. 500000)
