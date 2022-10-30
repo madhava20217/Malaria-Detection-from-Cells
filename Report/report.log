@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  30 OCT 2022 21:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  30 OCT 2022 21:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -383,6 +383,10 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 236.
 
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 273.
+
 (report.bbl
 Underfull \hbox (badness 1412) in paragraph at lines 14--18
 []\OT1/ptm/m/n/9 M. Poost-chi, K. Sil-a-mut, R. J. Maude, S. Jaeger, and
@@ -392,17 +396,17 @@ Underfull \hbox (badness 1412) in paragraph at lines 14--18
 
 ] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 10346 strings out of 478659
- 158977 string characters out of 2855778
- 481601 words of memory out of 3000000
+ 10347 strings out of 478659
+ 158984 string characters out of 2855778
+ 482601 words of memory out of 3000000
  28241 multiletter control sequences out of 15000+600000
  426424 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,9n,76p,876b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,10n,76p,876b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (5 pages, 1106041 bytes).
+Output written on report.pdf (5 pages, 1106672 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
+ 126 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

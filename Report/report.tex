@@ -126,7 +126,7 @@ We experimented with colour model transformations, and noticed that some models 
 \end{figure}
 
 \subsubsection{Cluster Visualisation}
-To visualise them, the images were first resized to a 50x50 colour format, each pixel value rescaled by 1/255, and each image finally flattened to a 50*50*3 length array. We used Euclidean distance as the distance metric and used the t-SNE algorithm to reduce dimensions to 2. We also used KMeans clustering to determine similarity clusters, but there was no clear relation between the natural clusters and the clusters output by K-Means. 
+To visualise them, the images were first resized to a 50x50 colour format, each pixel value rescaled by 1/255, and each image finally flattened to a 50*50*3 length array. We used Euclidean distance as the distance metric and used the t-SNE algorithm to reduce dimensions to 2. We also used KMeans clustering to determine similarity clusters, but there was no clear relation between the natural clusters and the clusters output by K-Means (figure 5).
 
 \begin{figure}[t]
    \begin{center}
@@ -145,7 +145,7 @@ Most of the efforts were gone into identifying which colour transformation would
 
 Modules created for augmentation provide functionality similar to TensorFlow's ImageDataGenerator \cite{tensorflow_imagedatagen}, capable of random rotation, translation, scaling, random noise induction, colour space transformation, cropping, and denoising. We intend to use these to augment the data for model training.
 
-\subsection{Prelimnary Models}
+\subsection{Preliminary Models}
 
 Some algorithms were implemented on unaugmented data. The 70\% of data was reserved for training, 15\% for validation and 15\% for testing. Hyperparameters were tuned based on results observed on the validation data and final evaluation done on the testing data. The images were resized to 25x25 dimensions and colour was preserved as RGB. For training, the images were flattened to a 25*25*3 array. Images which were ambiguous \cite{fuhadmalaria} were removed from the dataset, leaving us with 8770 parasitized and 8701 uninfected training images, 2392 parasitized and 2373 unparasitized images for the validation dataset, and 1970 parasitized and 1955 uninfected images for the test dataset. Data augmentation was not used, and we intend to develop it more after the mid-evaluation
 
@@ -265,7 +265,23 @@ We intend to evaluate models on images of varying sizes, from 25x25 to 100x100. 
 We learnt the importance of literature reviews, which informed us of the latest developments and about the discrepancy in labelling of the dataset \cite{fuhadmalaria}. Non-linear image space transformations can allow for better feature extraction. We also learnt about working with image datasets, what goes into their preprocessing, how to feed them as data to train models.
 
 \subsection{Individual Contributions}
-%# TODO
+
+Individual contributions can be found in table 5.
+% Please add the following required packages to your document preamble:
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+\begin{table}[]
+   \begin{tabular}{ll}
+   \multicolumn{2}{c}{{\ul \textbf{Individual contribution}}}                        \\ \hline
+   \multicolumn{1}{|l|}{{\ul Name}} & \multicolumn{1}{l|}{{\ul Contribution}}        \\ \hline
+   \multicolumn{1}{|l|}{Harshit}    & \multicolumn{1}{l|}{EDA, Testing mod.}         \\ \hline
+   \multicolumn{1}{|l|}{Madhava}    & \multicolumn{1}{l|}{EDA, Modelling, data mod.} \\ \hline
+   \multicolumn{1}{|l|}{Shreya}     & \multicolumn{1}{l|}{Lit. review, Data aug.}    \\ \hline
+   \multicolumn{1}{|l|}{Srishti}    & \multicolumn{1}{l|}{Data aug. , lit. review}   \\ \hline
+   \end{tabular}
+
+   \caption{Individual Contributions}
+\end{table}
 
 
 
