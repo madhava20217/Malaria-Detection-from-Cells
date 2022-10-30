@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{worldmalaria}
+W.~H. Organization, {\em World malaria report 2021}.
+\newblock World Health Organization, 2021.
+\newblock p. 23 Death and Infection Statistics.
+
+\bibitem{cdcmalaria}
+C.~for Disease~Control and Prevention, ``Cdc - malaria - diagnostic tools,''
+  2020.
+\newblock Malaria Testing.
+
+\bibitem{datasetref}
+N.~L. of~Medicine, ``Thin smear single-cell dataset.''
+  \href{https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html}{Link
+  1};
+  \href{https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip}{Link
+  2};
+  \href{https://www.kaggle.com/datasets/iarunava/cell-images-for-detecting-malaria}{Link
+  3}.
+\newblock Dataset.
+
+\bibitem{fuhadmalaria}
+F.~KMF, T.~JF, S.~MRA, M.~S, M.~N, and R.~T., ``Deep learning based automatic
+  malaria parasite detection from blood smear and its smartphone based
+  application,'' {\em Diagnostics (Basel)}, vol.~10, no.~5, p.~329, 2020.
+\newblock Misclassified images.
+
+\bibitem{Authors14b}
+Authors, ``Frobnication tutorial,'' 2014.
+\newblock Supplied as additional material {\tt tr.pdf}.
+
+\bibitem{Alpher02}
+F.~Alpher, ``Frobnication,'' {\em Journal of Foo}, vol.~12, no.~1,
+  pp.~234--778, 2002.
+
+\bibitem{Alpher03}
+F.~Alpher and F.~Fotheringham-Smythe, ``Frobnication revisited,'' {\em Journal
+  of Foo}, vol.~13, no.~1, pp.~234--778, 2003.
+
+\bibitem{Alpher04}
+F.~Alpher, F.~Fotheringham-Smythe, and F.~Gamow, ``Can a machine frobnicate?,''
+  {\em Journal of Foo}, vol.~14, no.~1, pp.~234--778, 2004.
+
+\end{thebibliography}
