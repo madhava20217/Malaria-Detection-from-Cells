@@ -92,7 +92,7 @@ Out of the 27,588 images, 647 parasitized and 750 unparasitized images were misc
 
 \section{Methodology}
 
-In order to reduce redundancy and obtain results in the form we desired, we focused on creating modules with specific objectives. Modules for downloading and setting up the dataset, for labelling the said dataset, to perform evaluation of models and transform images to augment the dataset were created.
+In order to reduce redundancy and obtain results in the form we desired, we focused on creating modules with specific objectives. Modules for downloading and setting up the dataset, for labelling the said dataset, to perform evaluation of models and transform images to augment the dataset were created. We have included the package requirements in a requirements.txt file, which can be used for easy installation using pip.
 
 \subsection{Exploratory Data Analysis}
 In order to determine which colour channel was the clearest with respect to the identification of the chromatin dot characteristic to the parasitized cell, we plotted the images in different colour channels and in grayscale.
@@ -138,10 +138,35 @@ Modules created for augmentation provide functionality similar to TensorFlow's I
 
 \subsection{Prelimnary Models}
 
-Some algorithms were implemented on unaugmented data. The 70\% of data was reserved for training, 15\% for validation and 15\% for testing. Hyperparameters were tuned based on results observed on the validation data and final evaluation done on the testing data. The images were resized to 25x25 dimensions and colour was preserved as RGB.
+Some algorithms were implemented on unaugmented data. The 70\% of data was reserved for training, 15\% for validation and 15\% for testing. Hyperparameters were tuned based on results observed on the validation data and final evaluation done on the testing data. The images were resized to 25x25 dimensions and colour was preserved as RGB. For training, the images were flattened to a 25*25*3 array. Images which were ambiguous \cite{fuhadmalaria} were removed from the dataset, leaving us with 8770 parasitized and 8701 uninfected training images, 2392 parasitized and 2373 unparasitized images for the validation dataset, and 1970 parasitized and 1955 uninfected images for the test dataset. Data augmentation was not used, and we intend to develop it more after the mid-evaluation
 
 \subsubsection{Naive Bayes}
+We used Gaussian Naive Bayes without prior weight initialisation.
 
+\subsubsection{Logistic regression}
+Logistic Regression was used with the default parameters.
+
+\subsubsection{Decision trees}
+Decision trees provide explainable modelling and are very fast to inference with. A decision tree with Gini entropy as the criterion with a maximum depth of 4 was constructed.
+
+\subsubsection{XGBoost}
+XGBoost with GPU-acceleration was used, the maximum depth was limited to 5, a forest was created from 20 trees.
+
+\subsubsection{CNNs}
+A basic convolutional neural network was implemented using TensorFlow. We intend to explore more on how the layers affect the model training and convergence
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/model_specifications.png}
+   \end{center}
+      \caption{CNN model architecture}
+   \label{fig:cnn_architecture}
+\end{figure}
+
+\subsubsection{Transfer Learning}
+Some attempts were taken at transfer learning. We noticed that Xception performed reasonably well, coming close to the CNN, with 95\% validation accuracy. A resizing layer was added to the model which upscaled the dimension of the image to 72x72 from 25x25 to be compatible with Xception.
+
+\subsubsection{}
 
 \section{Results and Analysis}
 %# TODO

@@ -665,6 +665,13 @@ INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
 INPUT .\report.bbl
 INPUT report.bbl
 INPUT .\report.bbl

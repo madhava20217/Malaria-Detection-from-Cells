@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  30 OCT 2022 12:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  30 OCT 2022 16:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -345,26 +345,33 @@ File: ../Plots/hsv_conversion.png Graphic file (type png)
 <use ../Plots/hsv_conversion.png>
 Package pdftex.def Info: ../Plots/hsv_conversion.png  used on input line 113.
 (pdftex.def)             Requested size: 237.13594pt x 94.85414pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 <../Plots/kmeans_natural labels.png, id=30, 956.57375pt x 487.8225pt>
 File: ../Plots/kmeans_natural labels.png Graphic file (type png)
 <use ../Plots/kmeans_natural labels.png>
 Package pdftex.def Info: ../Plots/kmeans_natural labels.png  used on input line 124.
 (pdftex.def)             Requested size: 237.13594pt x 120.9281pt.
- [4322 <../Plots/image_vis.png> <../Plots/Comparison between channels.png> <../Plots/hsv_conversion.png> <../Plots/kmeans_natural labels.png>] (report.bbl) [4323
-
-] (report.aux) ) 
+ [4322 <../Plots/image_vis.png> <../Plots/Comparison between channels.png> <../Plots/hsv_conversion.png> <../Plots/kmeans_natural labels.png>]
+<../Plots/model_specifications.png, id=51, 278.54062pt x 356.83313pt>
+File: ../Plots/model_specifications.png Graphic file (type png)
+<use ../Plots/model_specifications.png>
+Package pdftex.def Info: ../Plots/model_specifications.png  used on input line 160.
+(pdftex.def)             Requested size: 237.13594pt x 303.7996pt.
+ (report.bbl) [4323 <../Plots/model_specifications.png>] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 10216 strings out of 478659
- 157153 string characters out of 2855778
- 466356 words of memory out of 3000000
- 28134 multiletter control sequences out of 15000+600000
+ 10231 strings out of 478659
+ 157550 string characters out of 2855778
+ 466403 words of memory out of 3000000
+ 28141 multiletter control sequences out of 15000+600000
  424619 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,9n,76p,724b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,9n,76p,876b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (3 pages, 1076048 bytes).
+Output written on report.pdf (3 pages, 1101050 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 105 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
