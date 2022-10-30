@@ -1,14 +1,16 @@
 # Fdb version 3
-["bibtex report"] 1667104101 "report.aux" "report.bbl" "report" 1667104114
+["bibtex report"] 1667112350 "report.aux" "report.bbl" "report" 1667112352
   "C:/Program Files/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
   "egbib.bib" 1667102322 1987 6472b1b0685ef74d4e49e8dc52c5d71d ""
-  "report.aux" 1667104113 5490 08b84397154013ef79cd1db22663acee "pdflatex"
+  "report.aux" 1667112352 6335 9d96b059493b9dd8a5176715cbd087f9 "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
-["pdflatex"] 1667104113 "c:/Users/krish/Desktop/Malaria Detection from Cells/Report/report.tex" "report.pdf" "report" 1667104114
-  "../Plots/Comparison between channels.png" 1667103845 146133 36a3e27608b8589b18ed9b8624b6f513 ""
+["pdflatex"] 1667112351 "c:/Users/krish/Desktop/Malaria Detection from Cells/Report/report.tex" "report.pdf" "report" 1667112352
+  "../Plots/Comparison between channels.png" 1667112331 119658 88d80bab9ed4460712a438721b9abef7 ""
+  "../Plots/hsv_conversion.png" 1667112348 140326 f779207fc8623111a23b32769d58ce4f ""
   "../Plots/image_vis.png" 1667101018 241809 2571feb912343af356b35df0cbdd5179 ""
+  "../Plots/kmeans_natural labels.png" 1667105399 584505 78b8d792cfc02d6ba97a4005a1faf3a1 ""
   "C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Program Files/MiKTeX/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136765053 960 379cc0019370a9e0208a0a3f949f847a ""
   "C:/Program Files/MiKTeX/fonts/tfm/adobe/courier/pcrr8r.tfm" 1136765053 1292 bd42be2f344128bff6d35d98474adfe3 ""
@@ -117,11 +119,11 @@
   "C:/Users/krish/AppData/Roaming/MiKTeX/tex/latex/psnfss/times.sty" 1585926771 888 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
   "C:/Users/krish/AppData/Roaming/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/krish/AppData/Roaming/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1575571282 9715 b051d5b493d9fe5f4bc251462d039e5f ""
-  "c:/Users/krish/Desktop/Malaria Detection from Cells/Report/report.tex" 1667104112 21892 248470b5183e747dd9a149b989f4b4e5 ""
+  "c:/Users/krish/Desktop/Malaria Detection from Cells/Report/report.tex" 1667107149 24055 f503b5a9fac29640e2b676df74da28fe ""
   "cvpr.sty" 1566337652 8185 9c85e63bb1830fdefeac27370f229c9e ""
-  "report.aux" 1667104113 5490 08b84397154013ef79cd1db22663acee "pdflatex"
-  "report.bbl" 1667104101 1598 78055324a4d27938ea3e2253054223a0 "bibtex report"
-  "report.tex" 1667104112 21892 248470b5183e747dd9a149b989f4b4e5 ""
+  "report.aux" 1667112352 6335 9d96b059493b9dd8a5176715cbd087f9 "pdflatex"
+  "report.bbl" 1667112351 1598 78055324a4d27938ea3e2253054223a0 "bibtex report"
+  "report.tex" 1667107149 24055 f503b5a9fac29640e2b676df74da28fe ""
   (generated)
   "report.aux"
   "report.log"

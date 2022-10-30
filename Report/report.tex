@@ -68,10 +68,11 @@ RDTs indicate whether the patient is infected with one of the species of the mal
 
 Serological tests examine whether antibodies for the infection are present. They are mostly used for screening blood donors, testing for questionable diagnosis accompanied with treatment.
 
+\subsection{Role of Machine Learning}
+Numerous machine learning models have been proposed which segment a Whole Slide Image to identify red blood cells (RBCs) and classify these RBCs with a secondary trained model using deep neural network architectures and boosted trees. Our goal is to provide a computationally modest model with a good accuracy for the latter task, and provide meaningful results on how image dimensions and colour channel affect the accuracy of the above proposed models. Once these goals have been achieved, we will delve into image segmentation techniques to isolate RBCs from wholeslide images to pipeline the whole inferencing, if time permits.
+
 \section{Literature Survey}
 % #TODO
-
-\section{Methodology}
 
 \section{Dataset}
 The dataset used was publicly available, courtesy of  images were taken at Chittagong Medical College Hospital, Bangladesh.\cite{datasetref}
@@ -89,6 +90,10 @@ Out of the 27,588 images, 647 parasitized and 750 unparasitized images were misc
    \label{fig:malaria_image}
 \end{figure}
 
+\section{Methodology}
+
+In order to reduce redundancy and obtain results in the form we desired, we focused on creating modules with specific objectives. Modules for downloading and setting up the dataset, for labelling the said dataset, to perform evaluation of models and transform images to augment the dataset were created.
+
 \subsection{Exploratory Data Analysis}
 In order to determine which colour channel was the clearest with respect to the identification of the chromatin dot characteristic to the parasitized cell, we plotted the images in different colour channels and in grayscale.
 
@@ -101,8 +106,29 @@ Out of the plotted images, the green channel showed the maximum isolation of the
    \label{fig:channel_comparison}
 \end{figure}
 
-\subsection{t-SNE visualisation}
-To visualise the images, we used the t-SNE algorithm to reduce dimensions 
+We experimented with colour model transformations, and noticed that some models applying non-linear transformations (like HSV, HLS) captured the chromatin dot in parasitized cells better.
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/hsv_conversion.png}
+   \end{center}
+      \caption{Conversion to HSV space from RGB.}
+   \label{fig:HSV_space}
+\end{figure}
+
+\subsubsection{Cluster Visualisation}
+To visualise them, the images were first resized to a 50x50 colour format, each pixel value rescaled by 1/255, and each image finally flattened to a 50*50*3 length array. We used Euclidean distance as the distance metric and used the t-SNE algorithm to reduce dimensions to 2. We also used KMeans clustering to determine similarity clusters, but there was no clear relation between the natural clusters and the clusters output by K-Means. 
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/kmeans_natural labels.png}
+   \end{center}
+      \caption{KMeans and Natural Labels. The dataset was reduced to 2 dimensions using t-SNE.}
+   \label{fig:tsne_vis}
+\end{figure}
+
+\subsection{Preprocessing}
+The images were standardised to prespecified dimensions and colour model and each pixel scaled to a value between 0 and 1. 
 %-------------------------------------------------------------------------
 \subsection{Language}
 
