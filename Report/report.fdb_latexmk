@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex report"] 1667124849 "report.aux" "report.bbl" "report" 1667127275
+["bibtex report"] 1667129539 "report.aux" "report.bbl" "report" 1667129991
   "C:/Program Files/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
   "egbib.bib" 1667112624 2062 c5acc8e49840ec8ba091dd3069b3b4ad ""
-  "report.aux" 1667127275 5823 d0e25ebb28353f9e29d1f95a8d4aaae5 "pdflatex"
+  "report.aux" 1667129991 6182 3801e4c65558df8a2ac680cc30830b60 "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
-["pdflatex"] 1667127274 "c:/Users/krish/Desktop/Malaria Detection from Cells/Report/report.tex" "report.pdf" "report" 1667127275
+["pdflatex"] 1667129990 "c:/Users/krish/Desktop/Malaria Detection from Cells/Report/report.tex" "report.pdf" "report" 1667129991
   "../Plots/Comparison between channels.png" 1667112331 119658 88d80bab9ed4460712a438721b9abef7 ""
   "../Plots/hsv_conversion.png" 1667112348 140326 f779207fc8623111a23b32769d58ce4f ""
   "../Plots/image_vis.png" 1667101018 241809 2571feb912343af356b35df0cbdd5179 ""
@@ -26,8 +26,10 @@
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
+  "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1233951854 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1233951854 928 2dc8d444221b7a635bb58038579b861a ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1233951854 908 2921f8a10601f252058503cc6570e581 ""
+  "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1233951854 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -39,6 +41,7 @@
   "C:/Program Files/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Program Files/MiKTeX/fonts/tfm/public/latex-fonts/lasy6.tfm" 1136765053 520 4889cce2180234b97cad636b6039c722 ""
   "C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb" 1136846148 45758 19968a0990191524e34e1994d4a31cb6 ""
   "C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136833548 44729 fea0975e20ec51c992338362f05f1146 ""
   "C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb" 1136833548 46026 687528a208fbfc1f00832bb96cccebbb ""
@@ -109,11 +112,12 @@
   "C:/Users/krish/AppData/Roaming/MiKTeX/tex/latex/psnfss/times.sty" 1585926771 888 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
   "C:/Users/krish/AppData/Roaming/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/krish/AppData/Roaming/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1575571282 9715 b051d5b493d9fe5f4bc251462d039e5f ""
-  "c:/Users/krish/Desktop/Malaria Detection from Cells/Report/report.tex" 1667127273 27697 6f6cbbed7fea0d0161c262d57be1565d ""
+  "C:/Users/krish/AppData/Roaming/MiKTeX/tex/latex/ulem/ulem.sty" 1578651445 15682 94f55b803e160cf7fb6e4d77d07cfe1d ""
+  "c:/Users/krish/Desktop/Malaria Detection from Cells/Report/report.tex" 1667129989 33634 2f4d4469a5b7a7fd785afa142ece5f8c ""
   "cvpr.sty" 1566337652 8185 9c85e63bb1830fdefeac27370f229c9e ""
-  "report.aux" 1667127275 5823 d0e25ebb28353f9e29d1f95a8d4aaae5 "pdflatex"
-  "report.bbl" 1667124850 1252 4d230df41686c64f6cf667b62940dab2 "bibtex report"
-  "report.tex" 1667127273 27697 6f6cbbed7fea0d0161c262d57be1565d ""
+  "report.aux" 1667129991 6182 3801e4c65558df8a2ac680cc30830b60 "pdflatex"
+  "report.bbl" 1667129539 1252 4d230df41686c64f6cf667b62940dab2 "bibtex report"
+  "report.tex" 1667129989 33634 2f4d4469a5b7a7fd785afa142ece5f8c ""
   (generated)
   "report.aux"
   "report.log"

@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
 % Include other packages here, before hyperref.
 
 % If you comment hyperref and then uncomment it, you should delete
@@ -166,20 +168,89 @@ A basic convolutional neural network was implemented using TensorFlow. We intend
 \subsubsection{Transfer Learning}
 Some attempts were taken at transfer learning. We noticed that Xception performed reasonably well, coming close to the CNN, with 95\% validation accuracy. A resizing layer was added to the model which upscaled the dimension of the image to 72x72 from 25x25 to be compatible with Xception.
 
-\subsubsection{}
-
 \section{Results and Analysis}
-%# TODO
+
+Below are prelimnary results on unaugmented datasets used for training across 6 different models. Hyperparameters were tuned based on the validation set, and the models tested on the test set. The results can be noted in tables 1, 2, 3 and 4, which correspond to accuracy, precision, recall and f1-score respectively. 
+
+
+\begin{table}[]
+   \begin{tabular}{|llll|}
+   \hline
+   \multicolumn{4}{|c|}{{\ul \textbf{Accuracy}}}                                                                                  \\ \hline
+   \multicolumn{1}{|l|}{Model}                        & \multicolumn{1}{l|}{Training} & \multicolumn{1}{l|}{Validation} & Testing \\ \hline
+   \multicolumn{1}{|l|}{Naive Bayes}                  & \multicolumn{1}{l|}{0.639}    & \multicolumn{1}{l|}{0.640}      & 0.632   \\ \hline
+   \multicolumn{1}{|l|}{Log. Reg.}          & \multicolumn{1}{l|}{0.750}    & \multicolumn{1}{l|}{0.709}      & 0.707   \\ \hline
+   \multicolumn{1}{|l|}{Decision Trees}               & \multicolumn{1}{l|}{0.704}    & \multicolumn{1}{l|}{0.702}      & 0.694   \\ \hline
+   \multicolumn{1}{|l|}{XGBoost}                      & \multicolumn{1}{l|}{0.974}    & \multicolumn{1}{l|}{0.865}      & 0.856   \\ \hline
+   \multicolumn{1}{|l|}{CNN}                          & \multicolumn{1}{l|}{0.991}    & \multicolumn{1}{l|}{0.991}      & 0.988   \\ \hline
+   \multicolumn{1}{|l|}{Trans. Learn.} & \multicolumn{1}{l|}{0.970}    & \multicolumn{1}{l|}{0.948}      & 0.953   \\ \hline
+   \end{tabular}
+
+   \caption{Accuracy}
+\end{table}
+
+\begin{table}[]
+   \begin{tabular}{|llll|}
+   \hline
+   \multicolumn{4}{|c|}{{\ul \textbf{Precision}}}                                                                   \\ \hline
+   \multicolumn{1}{|l|}{Model}          & \multicolumn{1}{l|}{Training} & \multicolumn{1}{l|}{Validation} & Testing \\ \hline
+   \multicolumn{1}{|l|}{Naive Bayes}    & \multicolumn{1}{l|}{0.685}    & \multicolumn{1}{l|}{0.683}      & 0.677   \\ \hline
+   \multicolumn{1}{|l|}{Log. Reg.}      & \multicolumn{1}{l|}{0.763}    & \multicolumn{1}{l|}{0.716}      & 0.720   \\ \hline
+   \multicolumn{1}{|l|}{Decision Trees} & \multicolumn{1}{l|}{0.740}    & \multicolumn{1}{l|}{0.737}      & 0.726   \\ \hline
+   \multicolumn{1}{|l|}{XGBoost}        & \multicolumn{1}{l|}{0.985}    & \multicolumn{1}{l|}{0.878}      & 0.869   \\ \hline
+   \multicolumn{1}{|l|}{CNN}            & \multicolumn{1}{l|}{0.996}    & \multicolumn{1}{l|}{0.995}      & 0.996   \\ \hline
+   \multicolumn{1}{|l|}{Trans. Learn.}  & \multicolumn{1}{l|}{0.971}    & \multicolumn{1}{l|}{0.946}      & 0.955   \\ \hline
+   \end{tabular}
+
+\caption{Precision}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+\begin{table}[]
+   \begin{tabular}{|llll|}
+   \hline
+   \multicolumn{4}{|c|}{{\ul \textbf{Recall}}}                                                                      \\ \hline
+   \multicolumn{1}{|l|}{Model}          & \multicolumn{1}{l|}{Training} & \multicolumn{1}{l|}{Validation} & Testing \\ \hline
+   \multicolumn{1}{|l|}{Naive Bayes}    & \multicolumn{1}{l|}{0.512}    & \multicolumn{1}{l|}{0.529}      & 0.511   \\ \hline
+   \multicolumn{1}{|l|}{Log. Reg.}      & \multicolumn{1}{l|}{0.730}    & \multicolumn{1}{l|}{0.698}      & 0.679   \\ \hline
+   \multicolumn{1}{|l|}{Decision Trees} & \multicolumn{1}{l|}{0.634}    & \multicolumn{1}{l|}{0.639}      & 0.679   \\ \hline
+   \multicolumn{1}{|l|}{XGBoost}        & \multicolumn{1}{l|}{0.962}    & \multicolumn{1}{l|}{0.850}      & 0.839   \\ \hline
+   \multicolumn{1}{|l|}{CNN}            & \multicolumn{1}{l|}{0.986}    & \multicolumn{1}{l|}{0.986}      & 0.980   \\ \hline
+   \multicolumn{1}{|l|}{Trans. Learn.}  & \multicolumn{1}{l|}{0.970}    & \multicolumn{1}{l|}{0.952}      & 0.952   \\ \hline
+   \end{tabular}
+
+   \caption{Recall}
+\end{table}
 
 
 
+\begin{table}[]
+   \begin{tabular}{|llll|}
+   \hline
+   \multicolumn{4}{|c|}{{\ul \textbf{F1-Score}}}                                                                    \\ \hline
+   \multicolumn{1}{|l|}{Model}          & \multicolumn{1}{l|}{Training} & \multicolumn{1}{l|}{Validation} & Testing \\ \hline
+   \multicolumn{1}{|l|}{Naive Bayes}    & \multicolumn{1}{l|}{0.591}    & \multicolumn{1}{l|}{0.596}      & 0.583   \\ \hline
+   \multicolumn{1}{|l|}{Log. Reg.}      & \multicolumn{1}{l|}{0.746}    & \multicolumn{1}{l|}{0.707}      & 0.699   \\ \hline
+   \multicolumn{1}{|l|}{Decision Trees} & \multicolumn{1}{l|}{0.683}    & \multicolumn{1}{l|}{0.679}      & 0.674   \\ \hline
+   \multicolumn{1}{|l|}{XGBoost}        & \multicolumn{1}{l|}{0.973}    & \multicolumn{1}{l|}{0.863}      & 0.854   \\ \hline
+   \multicolumn{1}{|l|}{CNN}            & \multicolumn{1}{l|}{0.991}    & \multicolumn{1}{l|}{0.990}      & 0.988   \\ \hline
+   \multicolumn{1}{|l|}{Trans. Learn.}  & \multicolumn{1}{l|}{0.971}    & \multicolumn{1}{l|}{0.949}      & 0.953   \\ \hline
+   \end{tabular}
+   \caption{F1-score}
+\end{table}
 
 \section{Conclusion}
-%# TODO
+
+We notice that the CNN model has the best performance when it comes to accuracy, precision, recall and f1-score and shows low bias and low variance. Meanwhile, the XGBoost model performs extremely well on the training set, but fails to perform as well on the validation and test sets, indicating high variance. The rest of the models: Naive Bayes, Logistic Regression and Decision trees portray high bias and low variance. 
+
+Image space transformations can accentuate features and we intend to explore more regarding that.
 
 
 \subsection{Remaining Tasks}
-%# TODO
+
+We intend to evaluate models on images of varying sizes, from 25x25 to 100x100. We also aim to apply dataset augmentation techniques and nonlinear colour space transformations (eg. RGB to HSV) and determine their impact, while tuning the models further, implementing more architectures and determining optimal hyperparameters. Finally, we will attempt wholeslide image segmentation to isolate RBCs, if time permits.
 
 
 \subsection{Learnings}
@@ -188,8 +259,6 @@ Some attempts were taken at transfer learning. We noticed that Xception performe
 
 \subsection{Individual Contributions}
 %# TODO
-
-
 
 
 
