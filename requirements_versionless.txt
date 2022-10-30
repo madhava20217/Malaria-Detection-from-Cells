@@ -6,3 +6,4 @@ seaborn
 scikit-image
 opencv-python
 xgboost
+plot-metric

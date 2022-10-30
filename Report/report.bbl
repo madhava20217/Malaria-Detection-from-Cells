@@ -26,20 +26,9 @@ F.~KMF, T.~JF, S.~MRA, M.~S, M.~N, and R.~T., ``Deep learning based automatic
   application,'' {\em Diagnostics (Basel)}, vol.~10, no.~5, p.~329, 2020.
 \newblock Misclassified images.
 
-\bibitem{Authors14b}
-Authors, ``Frobnication tutorial,'' 2014.
-\newblock Supplied as additional material {\tt tr.pdf}.
-
-\bibitem{Alpher02}
-F.~Alpher, ``Frobnication,'' {\em Journal of Foo}, vol.~12, no.~1,
-  pp.~234--778, 2002.
-
-\bibitem{Alpher03}
-F.~Alpher and F.~Fotheringham-Smythe, ``Frobnication revisited,'' {\em Journal
-  of Foo}, vol.~13, no.~1, pp.~234--778, 2003.
-
-\bibitem{Alpher04}
-F.~Alpher, F.~Fotheringham-Smythe, and F.~Gamow, ``Can a machine frobnicate?,''
-  {\em Journal of Foo}, vol.~14, no.~1, pp.~234--778, 2004.
+\bibitem{tensorflow_imagedatagen}
+G.~TensorFlow, ``Imagedatagenerator.''
+\newblock
+  \href{https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator}{documentation}.
 
 \end{thebibliography}
