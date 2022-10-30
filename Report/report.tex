@@ -76,13 +76,33 @@ Serological tests examine whether antibodies for the infection are present. They
 \section{Dataset}
 The dataset used was publicly available, courtesy of  images were taken at Chittagong Medical College Hospital, Bangladesh.\cite{datasetref}
 
-\section{Dataset Description}
-The dataset contains 13,799 parasitized and 13,799 uninfected image samples containing 3 colour dimensions for a total of 27,588 images. The images are of varying sizes. The maximum height and width was 385 and 394 pixels respectively. The minimum height are width was 40 and 46 pixels respectively. The mean height and width was 133 and 132 pixels respectively. The median height and width was 130 pixels.
+\subsection{Dataset Description}
+The dataset contains 13,799 parasitized and 13,799 uninfected image samples containing 3 colour dimensions for a total of 27,588 images. The images are of varying sizes. The maximum height and width was 385 and 394 pixels respectively. The minimum height are width was 40 and 46 pixels respectively. The mean height and width was 133 and 132 pixels respectively. The median height and width was 130 pixels. The mean aspect ratio of the images is 1.0138.
 
 Out of the 27,588 images, 647 parasitized and 750 unparasitized images were misclassified \cite{fuhadmalaria}.
 
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/image_vis.png}
+   \end{center}
+      \caption{True and false parasitized and uninfected images.}
+   \label{fig:malaria_image}
+\end{figure}
 
+\subsection{Exploratory Data Analysis}
+In order to determine which colour channel was the clearest with respect to the identification of the chromatin dot characteristic to the parasitized cell, we plotted the images in different colour channels and in grayscale.
 
+Out of the plotted images, the green channel showed the maximum isolation of the chromatin dot. We also visualised inverted images and noticed that the green channel had isolated the chromatin dot the most.
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/Comparison between channels.png}
+   \end{center}
+      \caption{Comparison between various colour channels for a true parasitized cell.}
+   \label{fig:channel_comparison}
+\end{figure}
+
+\subsection{t-SNE visualisation}
+To visualise the images, we used the t-SNE algorithm to reduce dimensions 
 %-------------------------------------------------------------------------
 \subsection{Language}
 
@@ -254,17 +274,17 @@ FAQ\medskip\\
 
 
 
-\begin{figure}[t]
-\begin{center}
-\fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
-   %\includegraphics[width=0.8\linewidth]{egfigure.eps}
-\end{center}
-   \caption{Example of caption.  It is set in Roman so that mathematics
-   (always set in Roman: $B \sin A = A \sin B$) may be included without an
-   ugly clash.}
-\label{fig:long}
-\label{fig:onecol}
-\end{figure}
+% \begin{figure}[t]
+% \begin{center}
+% \fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+%    %\includegraphics[width=0.8\linewidth]{egfigure.eps}
+% \end{center}
+%    \caption{Example of caption.  It is set in Roman so that mathematics
+%    (always set in Roman: $B \sin A = A \sin B$) may be included without an
+%    ugly clash.}
+% \label{fig:long}
+% \label{fig:onecol}
+% \end{figure}
 
 \subsection{Miscellaneous}
 
@@ -298,13 +318,13 @@ chronological) order, so prefer \cite{Alpher03,Alpher02,cdcmalaria} to
 \cite{Alpher02,Alpher03,cdcmalaria}.
 
 
-\begin{figure*}
-\begin{center}
-\fbox{\rule{0pt}{2in} \rule{.9\linewidth}{0pt}}
-\end{center}
-   \caption{Example of a short caption, which should be centered.}
-\label{fig:short}
-\end{figure*}
+% \begin{figure*}
+% \begin{center}
+% \fbox{\rule{0pt}{2in} \rule{.9\linewidth}{0pt}}
+% \end{center}
+%    \caption{Example of a short caption, which should be centered.}
+% \label{fig:short}
+% \end{figure*}
 
 %------------------------------------------------------------------------
 \section{Formatting your paper}
