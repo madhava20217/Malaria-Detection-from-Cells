@@ -22,7 +22,7 @@ class Evaluation():
         
     def get_confusion_matrix_values(self, pred_value):
         tn, fp, fn, tp = confusion_matrix(self.actual, pred_value).ravel()
-        return(tn, fp, fn, tp)
+        return tn, fp, fn, tp
 
     def get_pred_value_threshold_lvl(self):
         pred_value = pd.DataFrame()
