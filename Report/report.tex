@@ -74,7 +74,14 @@ Serological tests examine whether antibodies for the infection are present. They
 Numerous machine learning models have been proposed which segment a Whole Slide Image to identify red blood cells (RBCs) and classify these RBCs with a secondary trained model using deep neural network architectures and boosted trees. Our goal is to provide a computationally modest model with a good accuracy for the latter task, and provide meaningful results on how image dimensions and colour channel affect the accuracy of the above proposed models. Once these goals have been achieved, we will delve into image segmentation techniques to isolate RBCs from wholeslide images to pipeline the whole inferencing, if time permits.
 
 \section{Literature Survey}
-% #TODO
+%
+Poostchi \etal created datasets, processed them, and tested a variety of algorithms like Naive Bayes, Logistic Regression, Decision Tree, Adaboost, SVMs, Neural Networks and Deep Neural Networks (DNNs). They also considered deployment of ML-based systems to diagnose Malaria \cite{POOSTCHI201836}.
+
+Liang \etal. compared a 16-layer Convolutional Neural Network (CNN) model with transfer learning for classifying single infected cells. They noted that the CNN achieved greater accuracy, sensitivity, specificity, f1-score and Matthew's correlation coefficient over the latter \cite{7822567}.
+
+Pan \etal explores preprocessing of images and segmentation to isolate single cells from wholeslide images. They used encoders and discussed encoder architectures for feature extraction, and discussed spatial and feature-space interpolation for enriching the dataset. They consistently noted higher performance of models trained on augmented datasets \cite{Pan18}.
+
+Fuhad \etal implemented a CNN-based model and implemented data augmentation techniques like random rotations, zoom, translations, shear and horizontal flips. They used CNNs as an autoencoder to extract and reduce features and used SVM and KNN algorithms to classify the images. They conducted knowledge distillation in order to prune the trained model and reduce its complexity, and deployed the resulting commpressed model to mobile and web-based applications. They also conducted analyses if common mobile phones could utilize the model to classify cells.\cite{fuhadmalaria}.
 
 \section{Dataset}
 The dataset used was publicly available, courtesy of  images were taken at Chittagong Medical College Hospital, Bangladesh.\cite{datasetref}
@@ -250,12 +257,12 @@ Image space transformations can accentuate features and we intend to explore mor
 
 \subsection{Remaining Tasks}
 
-We intend to evaluate models on images of varying sizes, from 25x25 to 100x100. We also aim to apply dataset augmentation techniques and nonlinear colour space transformations (eg. RGB to HSV) and determine their impact, while tuning the models further, implementing more architectures and determining optimal hyperparameters. Finally, we will attempt wholeslide image segmentation to isolate RBCs, if time permits.
+We intend to evaluate models on images of varying sizes, from 25x25 to 100x100. We also aim to apply dataset augmentation techniques and nonlinear colour space transformations (eg. RGB to HSV) and determine their impact, while tuning the models further, implementing more architectures and determining optimal hyperparameters. We will explore rule-based thresholding for identifying clustered points. Finally, we will attempt wholeslide image segmentation to isolate RBCs, if time permits.
 
 
 \subsection{Learnings}
-%# TODO
 
+We learnt the importance of literature reviews, which informed us of the latest developments and about the discrepancy in labelling of the dataset \cite{fuhadmalaria}. Non-linear image space transformations can allow for better feature extraction. We also learnt about working with image datasets, what goes into their preprocessing, how to feed them as data to train models.
 
 \subsection{Individual Contributions}
 %# TODO

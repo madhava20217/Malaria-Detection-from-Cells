@@ -628,14 +628,6 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\courier\pcrr7t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\courier\pcrr7t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb7t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT ..\Plots\image_vis.png
-INPUT ..\Plots\image_vis.png
-INPUT ..\Plots\image_vis.png
-INPUT ..\Plots\image_vis.png
-INPUT ..\Plots\image_vis.png
-INPUT ..\Plots\image_vis.png
-INPUT ..\Plots\image_vis.png
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\krish\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
@@ -651,6 +643,14 @@ INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\times\ptmb.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
+INPUT ..\Plots\image_vis.png
+INPUT ..\Plots\image_vis.png
+INPUT ..\Plots\image_vis.png
+INPUT ..\Plots\image_vis.png
+INPUT ..\Plots\image_vis.png
+INPUT ..\Plots\image_vis.png
+INPUT ..\Plots\image_vis.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT ..\Plots\Comparison between channels.png
 INPUT ..\Plots\Comparison between channels.png
 INPUT ..\Plots\Comparison between channels.png
