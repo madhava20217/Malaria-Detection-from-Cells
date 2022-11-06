@@ -194,11 +194,9 @@ class ModelEvaluation(Evaluation,evaluation_plots):
         evalu = Evaluation(actual = self.actual, pred = self.pred,threshold = self.threshold,model_reference_name=self.model_reference_name,model_type = self.model_type)
         pred_value = evalu.get_pred_value_threshold_lvl()
         metrics_db = evalu.metrics(pred_value)
-        decile_db = evalu.create_decile(model_class=model_class, bins=bins)
         if evaluate_save:
             writer = pd.ExcelWriter('evaluation_results.xlsx', engine='xlsxwriter')
             metrics_db.to_excel(writer, sheet_name='Metrics_details')
-            decile_db.to_excel(writer, sheet_name='decile_details')
             writer.save()
             print("The results are save to - ",os.getcwd()+'\\evaluation_results.xlsx')
         if plots_show:
@@ -209,10 +207,8 @@ class ModelEvaluation(Evaluation,evaluation_plots):
             eval_plt.confusion_matrix_plot(actual = self.actual, pred=self.pred, best_threshold = best_threshold)
             eval_plt.roc_auc_plot(actual = self.actual, pred=self.pred)
             eval_plt.precision_recall_plot(actual = self.actual, pred=self.pred)
-            eval_plt.plot_decile(df=decile_db,model_class=model_class)
-            eval_plt.lift_chart(data=decile_db, X='decile', y='lift')
             plt.close()
-        return(metrics_db, decile_db, best_threshold, self.maximising_metrics)
+        return(metrics_db, best_threshold, self.maximising_metrics)
 
     def Compare_models(self, evaluate_db = None ,model_id = None, comparison_metrics = None):
         if comparison_metrics:
