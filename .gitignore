@@ -1,3 +1,6 @@
 Data/*
 Datasets/*
 Modules/__pycache__/
+output/*
+TensorFlow_Data_Augmentation/augment/
+TensorFlow_Data_Augmentation/images/
