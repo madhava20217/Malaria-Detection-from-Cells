@@ -9,3 +9,5 @@ xgboost
 plot-metric
 tqdm
 albumentations
+plot_metric
+xlsxwriter
