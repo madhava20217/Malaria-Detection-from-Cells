@@ -8,4 +8,4 @@ opencv-python
 xgboost
 plot-metric
 tqdm
-augmentor
+albumentations
