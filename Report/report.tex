@@ -227,7 +227,7 @@ The results are available in tables \ref{table:rgb_unaug}, \ref{table:rgb_aug}, 
 
 We notice that among all models, the SVM model performs among the worst in all cases, followed by the Naive Bayes Classifier. It can be attributed to the classifier being unable to find a separating plane when the high dimensinal image data was compressed to the relatively low 3 dimensions.
 
-Another striking thing we notice is that besides the logistic regression classifier, none of the models performed well on the RGB augmented data. This could have been a result of the nature of transformations used. Many attempts were made to regenerate the augmentations, but to no avail.
+Another striking thing we notice is that besides the logistic regression classifier, none of the models performed well on the RGB augmented data. This could have been a result of the nature of transformations used. Many attempts were made to regenerate the augmentations, but to no avail. We attempted to recreate the scenario using TensorFlow's ImageDataGenerator using the same data as inputs and the same transformations, but there was no difference in results in training the CNN model. The model failed to converge yet again and resulted in bad performance overall.
 
 The Saturation channel in the HSV conversion certainly made a noticeable impact. For the unaugmented dataset, the performance of the CNN and XGBoost increased, while that of Naive Bayes, Logistic Regression, Decision Tree, and SVM decreased. This is particularly interesting, as this gave us an almost 10\% performance increase for the XGBoost model and allowed the CNN model to match the accuracy of the top-performing models in this space.
 
@@ -235,7 +235,7 @@ Going from the unaugmented to augmented HSV dataset, we observe a general declin
 
 The loss-curves for the CNN model can be seen in figures \ref{fig:cnn_rgb_losscurve}, \ref{fig:cnn_rgb_aug_losscurve}, \ref{fig:cnn_hsv_losscurve}, \ref{fig:cnn_hsv_aug_losscurve}. We notice some overfitting in \ref{fig:cnn_rgb_losscurve}, \ref{fig:cnn_hsv_losscurve}, and \ref{fig:cnn_hsv_aug_losscurve}, but the checkpointing and model reloading saves and reloads the best model, providing optimal results. Similar graphs were observed for the logistic learning and transfer-learning loss-curves.
 
-Finally, we created a GUI-based interface which uses trained models for inferencing the class of a cell image.
+Finally, we created a GUI-based interface which uses trained models for inferencing the class of a cell image. The video can be found \href{https://drive.google.com/file/d/1PuiOddcjlm_IbtReFyz8v2K37MM5XqCo/view?usp=share_link}{\textbf{here}}.
 
 \begin{figure}[t]
    \begin{center}
@@ -344,7 +344,7 @@ We first notice the sheer strength of the CNN-based models. They are consistentl
 
 We also notice that the HSV colour transformation helps with the CNN and XGBoost models, both of which shot up in accuracy significantly. The XGBoost model is said to be a powerful tool and it made it clear here.
 
-The role of augmentations is also clearer: with CNN models performing better than before using them.
+The role of augmentations remains vague with the amount of testing done so far, with CNN models performing slightly better than before using them, but not by a significant margin. The values and kinds of transformations used for augmenting the data must be carefully determined so as to prohibit scenarios like the lack of convergence.
 
 
 %-------------------------------------------------------------------------
