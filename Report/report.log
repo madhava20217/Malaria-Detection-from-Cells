@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  4 DEC 2022 22:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  5 DEC 2022 00:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -342,11 +342,11 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 
 
 ]
-<../Plots/image_vis.png, id=35, 1173.38374pt x 592.2125pt>
+<../Plots/image_vis.png, id=35, 1108.14pt x 540.51938pt>
 File: ../Plots/image_vis.png Graphic file (type png)
 <use ../Plots/image_vis.png>
 Package pdftex.def Info: ../Plots/image_vis.png  used on input line 124.
-(pdftex.def)             Requested size: 237.13594pt x 119.67839pt.
+(pdftex.def)             Requested size: 237.13594pt x 115.66505pt.
 <../Plots/Comparison between channels.png, id=37, 1084.05pt x 235.88126pt>
 File: ../Plots/Comparison between channels.png Graphic file (type png)
 <use ../Plots/Comparison between channels.png>
@@ -358,7 +358,7 @@ File: ../Plots/hsv_conversion.png Graphic file (type png)
 Package pdftex.def Info: ../Plots/hsv_conversion.png  used on input line 150.
 (pdftex.def)             Requested size: 237.13594pt x 94.85414pt.
  [2 <../Plots/image_vis.png> <../Plots/Comparison between channels.png>]
-<../Plots/kmeans_natural labels.png, id=65, 956.57375pt x 487.8225pt>
+<../Plots/kmeans_natural labels.png, id=66, 956.57375pt x 487.8225pt>
 File: ../Plots/kmeans_natural labels.png Graphic file (type png)
 <use ../Plots/kmeans_natural labels.png>
 Package pdftex.def Info: ../Plots/kmeans_natural labels.png  used on input line 161.
@@ -373,23 +373,47 @@ File: ../Plots/model_specifications.png Graphic file (type png)
 Package pdftex.def Info: ../Plots/model_specifications.png  used on input line 216.
 (pdftex.def)             Requested size: 237.13594pt x 371.95264pt.
 
+Underfull \hbox (badness 2980) in paragraph at lines 234--235
+[]\OT1/ptm/m/n/10 Going from the unaug-mented to aug-mented HSV
+ []
+
+<../Plots/loss-curves/CNN_unaug_losscurve.png, id=103, 867.24pt x 433.62pt>
+File: ../Plots/loss-curves/CNN_unaug_losscurve.png Graphic file (type png)
+<use ../Plots/loss-curves/CNN_unaug_losscurve.png>
+Package pdftex.def Info: ../Plots/loss-curves/CNN_unaug_losscurve.png  used on input line 242.
+(pdftex.def)             Requested size: 237.13594pt x 118.56767pt.
+<../Plots/loss-curves/CNN_aug_losscurve.png, id=104, 867.24pt x 433.62pt>
+File: ../Plots/loss-curves/CNN_aug_losscurve.png Graphic file (type png)
+<use ../Plots/loss-curves/CNN_aug_losscurve.png>
+Package pdftex.def Info: ../Plots/loss-curves/CNN_aug_losscurve.png  used on input line 250.
+(pdftex.def)             Requested size: 237.13594pt x 118.56767pt.
+<../Plots/loss-curves/CNN_unaug_losscurve_HSV.png, id=105, 867.24pt x 433.62pt>
+File: ../Plots/loss-curves/CNN_unaug_losscurve_HSV.png Graphic file (type png)
+<use ../Plots/loss-curves/CNN_unaug_losscurve_HSV.png>
+Package pdftex.def Info: ../Plots/loss-curves/CNN_unaug_losscurve_HSV.png  used on input line 258.
+(pdftex.def)             Requested size: 237.13594pt x 118.56767pt.
+<../Plots/loss-curves/CNN_aug_losscurve_HSV.png, id=106, 867.24pt x 433.62pt>
+File: ../Plots/loss-curves/CNN_aug_losscurve_HSV.png Graphic file (type png)
+<use ../Plots/loss-curves/CNN_aug_losscurve_HSV.png>
+Package pdftex.def Info: ../Plots/loss-curves/CNN_aug_losscurve_HSV.png  used on input line 267.
+(pdftex.def)             Requested size: 237.13594pt x 118.56767pt.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 232.
+               Default added (so using `tbp') on input line 274.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 249.
+               Default added (so using `tbp') on input line 291.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 266.
+               Default added (so using `tbp') on input line 308.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 283.
+               Default added (so using `tbp') on input line 325.
 
-(report.bbl [4 <../Plots/model_specifications.png>]
+[4 <../Plots/model_specifications.png>] (report.bbl
 Underfull \hbox (badness 6032) in paragraph at lines 14--19
 []\OT1/ptm/m/n/9 Wikipedia con-trib-u-tors, ``Color model --- Wikipedia,
  []
@@ -404,21 +428,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--19
 \OT1/pcr/m/n/9 org / w / index . php ? title = Color _ model & oldid =
  []
 
-) [5
+[5 <../Plots/loss-curves/CNN_unaug_losscurve.png> <../Plots/loss-curves/CNN_aug_losscurve.png> <../Plots/loss-curves/CNN_unaug_losscurve_HSV.png> <../Plots/loss-curves/CNN_aug_losscurve_HSV.png>]) [6
 
 ] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 10429 strings out of 478659
- 160383 string characters out of 2855778
- 483165 words of memory out of 3000000
- 28303 multiletter control sequences out of 15000+600000
+ 10467 strings out of 478659
+ 161842 string characters out of 2855778
+ 484521 words of memory out of 3000000
+ 28331 multiletter control sequences out of 15000+600000
  428283 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,15n,76p,786b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (5 pages, 1202767 bytes).
+Output written on report.pdf (6 pages, 1934817 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 62 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

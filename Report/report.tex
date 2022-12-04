@@ -154,7 +154,7 @@ We experimented with colour model transformations, and noticed that some models 
 \end{figure}
 
 \subsubsection{Cluster Visualisation}
-To visualise them, the images were first resized to a 50x50 colour format, each pixel value rescaled by 1/255, and each image finally flattened to a 50*50*3 length array. We used Euclidean distance as the distance metric and used the t-SNE algorithm to reduce dimensions to 2. We also used KMeans clustering to determine similarity clusters, but there was no clear relation between the natural clusters and the clusters output by K-Means (figure 5).
+To visualise them, the images were first resized to a 50x50 colour format, each pixel value rescaled by 1/255, and each image finally flattened to a 50*50*3 length array. We used Euclidean distance as the distance metric and used the t-SNE algorithm to reduce dimensions to 2. We also used KMeans clustering to determine similarity clusters, but there was no clear relation between the natural clusters and the clusters output by K-Means (figure \ref{fig:tsne_vis}).
 
 \begin{figure}[t]
    \begin{center}
@@ -190,7 +190,7 @@ The training dataset had 20,601 images, the augmented testing had 41,202 images,
 
 HSV conversion was carried out on all four datasets independently. As per the exploration and to reduce dimensionality, only the Saturation channel was used.
 
-Hyperparameters were tuned on the validation set and the model parameters were unchanged between the unaugmented and augmented datasets.
+Hyperparameters were tuned on the validation set and the model parameters were unchanged between the unaugmented and augmented datasets. Early-stopping and checkpointing was used in TensorFlow-based models. The best-performing weights were loaded after the training completed.
 
 
 \subsubsection{Naive Bayes}
@@ -228,6 +228,48 @@ The results are available in tables \ref{table:rgb_unaug}, \ref{table:rgb_aug}, 
 We notice that among all models, the SVM model performs among the worst in all cases, followed by the Naive Bayes Classifier. It can be attributed to the classifier being unable to find a separating plane when the high dimensinal image data was compressed to the relatively low 3 dimensions.
 
 Another striking thing we notice is that besides the logistic regression classifier, none of the models performed well on the RGB augmented data. This could have been a result of the nature of transformations used. Many attempts were made to regenerate the augmentations, but to no avail.
+
+The Saturation channel in the HSV conversion certainly made a noticeable impact. For the unaugmented dataset, the performance of the CNN and XGBoost increased, while that of Naive Bayes, Logistic Regression, Decision Tree, and SVM decreased. This is particularly interesting, as this gave us an almost 10\% performance increase for the XGBoost model and allowed the CNN model to match the accuracy of the top-performing models in this space.
+
+Going from the unaugmented to augmented HSV dataset, we observe a general decline in performance, while that of the CNN increased (with the same model parameters). This surpasses previously proposed models with respect to the precision, recall and f1 scores, and is almost able to match them in terms of model accuracy.
+
+The loss-curves for the CNN model can be seen in figures \ref{fig:cnn_rgb_losscurve}, \ref{fig:cnn_rgb_aug_losscurve}, \ref{fig:cnn_hsv_losscurve}, \ref{fig:cnn_hsv_aug_losscurve}. We notice some overfitting in \ref{fig:cnn_rgb_losscurve}, \ref{fig:cnn_hsv_losscurve}, and \ref{fig:cnn_hsv_aug_losscurve}, but the checkpointing and model reloading saves and reloads the best model, providing optimal results. Similar graphs were observed for the logistic learning and transfer-learning loss-curves.
+
+Finally, we created a GUI-based interface which uses trained models for inferencing the class of a cell image.
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/loss-curves/CNN_unaug_losscurve.png}
+   \end{center}
+      \caption{Loss-accuracy curve of the CNN model trained on unaugmented RGB data.}
+   \label{fig:cnn_rgb_losscurve}
+\end{figure}
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/loss-curves/CNN_aug_losscurve.png}
+   \end{center}
+      \caption{Loss-accuracy curve of the CNN model trained on augmented RGB data.}
+   \label{fig:cnn_rgb_aug_losscurve}
+\end{figure}
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/loss-curves/CNN_unaug_losscurve_HSV.png}
+   \end{center}
+      \caption{Loss-accuracy curve of the CNN model trained on unaugmented HSV data.}
+   \label{fig:cnn_hsv_losscurve}
+\end{figure}
+
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/loss-curves/CNN_aug_losscurve_HSV.png}
+   \end{center}
+      \caption{Loss-accuracy curve of the CNN model trained on augmented HSV data.}
+   \label{fig:cnn_hsv_aug_losscurve}
+\end{figure}
+
 
 \begin{table}[]
    \begin{tabular}{|lllll|}
@@ -298,7 +340,11 @@ Another striking thing we notice is that besides the logistic regression classif
 
 \section{Conclusion}
 %TODO
+We first notice the sheer strength of the CNN-based models. They are consistently at the top of the charts (excepting the outlier RGB-augmented data, on which no model could get properly trained).
 
+We also notice that the HSV colour transformation helps with the CNN and XGBoost models, both of which shot up in accuracy significantly. The XGBoost model is said to be a powerful tool and it made it clear here.
+
+The role of augmentations is also clearer: with CNN models performing better than before using them.
 
 
 %-------------------------------------------------------------------------
