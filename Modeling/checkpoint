@@ -1,2 +1,2 @@
-model_checkpoint_path: "LR_No_Aug_HSV"
-all_model_checkpoint_paths: "LR_No_Aug_HSV"
+model_checkpoint_path: "CNN_Aug"
+all_model_checkpoint_paths: "CNN_Aug"
