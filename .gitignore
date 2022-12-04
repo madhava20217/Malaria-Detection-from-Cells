@@ -2,3 +2,7 @@ Data/*
 Datasets/*
 Modules/__pycache__/
 Pickled Datasets/*
+Modeling/TL_Aug.data-00000-of-00001
+Modeling/TL_Aug.index
+Modeling/TL_No_Aug.data-00000-of-00001
+Modeling/TL_No_Aug.index
