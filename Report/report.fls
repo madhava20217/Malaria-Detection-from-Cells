@@ -701,14 +701,14 @@ INPUT C:\Users\krish\AppData\Roaming\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\krish\AppData\Roaming\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\krish\AppData\Roaming\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
-INPUT ..\Plots\model_specifications.png
-INPUT ..\Plots\model_specifications.png
-INPUT ..\Plots\model_specifications.png
-INPUT ..\Plots\model_specifications.png
-INPUT ..\Plots\model_specifications.png
-INPUT ..\Plots\model_specifications.png
-INPUT ..\Plots\model_specifications.png
 INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
+INPUT ..\Plots\model_specifications.png
 INPUT .\report.bbl
 INPUT report.bbl
 INPUT .\report.bbl

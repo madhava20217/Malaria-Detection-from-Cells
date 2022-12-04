@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  4 DEC 2022 21:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.3.8)  4 DEC 2022 22:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -366,35 +366,30 @@ Package pdftex.def Info: ../Plots/kmeans_natural labels.png  used on input line 
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 174.
  (C:\Users\krish\AppData\Roaming\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-<../Plots/model_specifications.png, id=68, 278.54062pt x 356.83313pt>
+) [3 <../Plots/hsv_conversion.png> <../Plots/kmeans_natural labels.png>]
+<../Plots/model_specifications.png, id=91, 329.73187pt x 517.18219pt>
 File: ../Plots/model_specifications.png Graphic file (type png)
 <use ../Plots/model_specifications.png>
-Package pdftex.def Info: ../Plots/model_specifications.png  used on input line 211.
-(pdftex.def)             Requested size: 237.13594pt x 303.7996pt.
- [3 <../Plots/hsv_conversion.png> <../Plots/kmeans_natural labels.png>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 225.
+Package pdftex.def Info: ../Plots/model_specifications.png  used on input line 216.
+(pdftex.def)             Requested size: 237.13594pt x 371.95264pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 241.
+               Default added (so using `tbp') on input line 232.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 258.
+               Default added (so using `tbp') on input line 249.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 274.
+               Default added (so using `tbp') on input line 266.
 
-[4 <../Plots/model_specifications.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 311.
+               Default added (so using `tbp') on input line 283.
 
-(report.bbl
+(report.bbl [4 <../Plots/model_specifications.png>]
 Underfull \hbox (badness 6032) in paragraph at lines 14--19
 []\OT1/ptm/m/n/9 Wikipedia con-trib-u-tors, ``Color model --- Wikipedia,
  []
@@ -409,19 +404,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--19
 \OT1/pcr/m/n/9 org / w / index . php ? title = Color _ model & oldid =
  []
 
-) [5] (report.aux) ) 
+) [5
+
+] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 10428 strings out of 478659
- 160349 string characters out of 2855778
- 485742 words of memory out of 3000000
- 28299 multiletter control sequences out of 15000+600000
+ 10429 strings out of 478659
+ 160383 string characters out of 2855778
+ 483165 words of memory out of 3000000
+ 28303 multiletter control sequences out of 15000+600000
  428283 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,15n,76p,786b,398s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,15n,76p,786b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (5 pages, 1207514 bytes).
+Output written on report.pdf (5 pages, 1202767 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
