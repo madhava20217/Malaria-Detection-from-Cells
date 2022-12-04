@@ -21,6 +21,7 @@ class Root(Tk):
         self.button()
         self.button1() 
         self.model = model
+        self.label1 : Label= None
  
     def button(self):
         self.button = ttk.Button(self.labelFrame, text = "Browse A File",command = self.fileDialog)
@@ -39,12 +40,17 @@ class Root(Tk):
         
     def get_prediction(self):
         
+        # img = Image.open(self.filename)
+        # ph = ImageTk.PhotoImage(img)
+        if self.label1 is not None:
+            self.label1.config(image = "")
+
         img = Image.open(self.filename)
         ph = ImageTk.PhotoImage(img)
 
-        label1 = Label(image = ph)
-        label1.image = ph
-        label1.place(x = 260, y = 120)
+        self.label1 = Label(image = ph)
+        self.label1.image = ph
+        self.label1.place(x = 260, y = 120)
 
         my_image = image.load_img(self.filename)  #input 
         my_image = image.img_to_array(my_image)
