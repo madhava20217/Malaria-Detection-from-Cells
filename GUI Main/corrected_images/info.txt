@@ -1,4 +1,0 @@
-This folder has been downloaded as a result of the efforts by Fuhad et al (2020) for labelling mislabeled images in the dataset.
-
-The drive download link can be found here: https://drive.google.com/drive/folders/10TXXa6B_D4AKuBV085tX7UudH1hINBRJ
-

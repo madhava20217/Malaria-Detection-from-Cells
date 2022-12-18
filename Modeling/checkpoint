@@ -1,2 +1,0 @@
-model_checkpoint_path: "CNN_TF_AUG"
-all_model_checkpoint_paths: "CNN_TF_AUG"
