@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[normalem]{ulem}
+\usepackage{textcomp}
 \useunder{\uline}{\ul}{}
 % Include other packages here, before hyperref.
 
@@ -53,7 +54,11 @@ Srishti Singh\\
 \begin{abstract}
    Malaria is a life-threatening spread by infected Anopheles mosquito bites. Existing means of diagnosis include light microscopy and rapid diagnostic tests, which are used in conjuction to provide accurate results. However, the costs associated with them, in terms of human capital and time required, are immense.
    
-   We seek to provide a complementing approach to infection classification using machine learning, which is fast and inexpensive. By training different algorithms like logistic regression, boosted decision trees, support vector machines and convolutional neural networks on images of varying sizes and using image transformations to augment the dataset, we conduct a comprehensive study on model accuracy and inferencing time.
+   We seek to provide a complementing approach to infection classification using machine learning, which is fast and inexpensive. We examine the performance of algorithms like logistic regression, boosted decision trees, support vector machines and convolutional neural networks on cellular images, and the  effect of using image transformation and data augmentation approaches.
+
+   Finally, we provide a GUI-based tool with a CNN model at its core to predict whether a given cell is parsitized or not.
+
+   The GitHub repository containing the code can be found \href{https://github.com/madhava20217/Malaria-Detection-from-Cells}{\underline{here}}. The \href{https://drive.google.com/drive/u/0/folders/1_r2lBXp5v5bqp2ctHvTG2FAWc-aGdpmD}{\underline{Google Drive link}} contains the major code files.
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
@@ -71,7 +76,32 @@ RDTs indicate whether the patient is infected with one of the species of the mal
 Serological tests examine whether antibodies for the infection are present. They are mostly used for screening blood donors, testing for questionable diagnosis accompanied with treatment.
 
 \subsection{Role of Machine Learning}
-Numerous machine learning models have been proposed which segment a Whole Slide Image to identify red blood cells (RBCs) and classify these RBCs with a secondary trained model using deep neural network architectures and boosted trees. Our goal is to provide a computationally modest model with a good accuracy for the latter task, and provide meaningful results on how image dimensions and colour channel affect the accuracy of the above proposed models. Once these goals have been achieved, we will delve into image segmentation techniques to isolate RBCs from wholeslide images to pipeline the whole inferencing, if time permits.
+Numerous machine learning models have been proposed which segment a Whole Slide Image to identify red blood cells (RBCs) and classify these RBCs with a secondary trained model using deep neural network architectures and boosted trees. We observe how image transformations into the HSV mode can help isolate the irregularities better and propose models which can perform as well or better than existing ones.
+
+\subsection{Colour Models}
+Colour models are ways to represent colour images as tuples\cite{enwiki:1091166634}. A number of colour models have been proposed, each trying to capture a specific aspect of sight. The RGB colour model captures colours in Red, Green and Blue. The HSV colour space captures Hue, Saturation and Brightness. Saturation captures how pure the colour is\cite{Kurniastuti_2022}. Converting from RGB to HSV uses the following formula:
+
+\begin{gather*}
+   R' = R / 255\\
+   G' = G / 255\\
+   B' = B/255\\\\
+C_{max} = \max(R', G', B')\\
+C_{min} = \min(R', G', B')\\
+\Delta = C_{max} - C{min} \\\\
+\end{gather*}
+\begin{align}
+   H &= \begin{cases}
+      0 & \Delta = 0\\
+      60 \times (\frac{G' - B'}{\Delta}\mod{6}) & C_{max} = R'\\
+      60 \times (\frac{B' - R'}{\Delta}+2) & C_{max} = G'\\
+      60 \times (\frac{R' - G'}{\Delta} + 4)& C_{max} = B'
+   \end{cases}\\
+   S &= \begin{cases}
+      0 & C_{max} = 0\\
+      \frac{\Delta}{C_{max}} & C_{max} \neq 0
+   \end{cases}\\
+   V &= C_{max}
+\end{align}
 
 \section{Literature Survey}
 %
@@ -81,7 +111,7 @@ Liang \etal. compared a 16-layer Convolutional Neural Network (CNN) model with t
 
 Pan \etal explores preprocessing of images and segmentation to isolate single cells from wholeslide images. They used encoders and discussed encoder architectures for feature extraction, and discussed spatial and feature-space interpolation for enriching the dataset. They consistently noted higher performance of models trained on augmented datasets \cite{Pan18}.
 
-Fuhad \etal implemented a CNN-based model and implemented data augmentation techniques like random rotations, zoom, translations, shear and horizontal flips. They used CNNs as an autoencoder to extract and reduce features and used SVM and KNN algorithms to classify the images. They conducted knowledge distillation in order to prune the trained model and reduce its complexity, and deployed the resulting commpressed model to mobile and web-based applications. They also conducted analyses if common mobile phones could utilize the model to classify cells.\cite{fuhadmalaria}.
+Fuhad \etal implemented a CNN-based model and implemented data augmentation techniques like random rotations, zoom, translations, shear and horizontal flips. They used CNNs as an autoencoder to extract and reduce features and used SVM and KNN algorithms to classify the images. They conducted knowledge distillation in order to prune the trained model and reduce its complexity, and deployed the resulting commpressed model to mobile and web-based applications. They also conducted analyses if common mobile phones could utilize the model to classify cells. A final accuracy of 99.23\% was obtained by their efforts with a validation loss of 0.02 with the log loss function\cite{fuhadmalaria}.
 
 \section{Dataset}
 The dataset used was publicly available, courtesy of  images were taken at Chittagong Medical College Hospital, Bangladesh.\cite{datasetref}
@@ -101,7 +131,7 @@ Out of the 27,588 images, 647 parasitized and 750 unparasitized images were misc
 
 \section{Methodology}
 
-In order to reduce redundancy and obtain results in the form we desired, we focused on creating modules with specific objectives. Modules for downloading and setting up the dataset, for labelling the said dataset, to perform evaluation of models and transform images to augment the dataset were created. We have included the package requirements in a requirements.txt file, which can be used for easy installation using pip.
+We adopted a modular approach and created modules designed for a specific task: data download and labelling, test-train-validation splits, model evaluation and data
 
 \subsection{Exploratory Data Analysis}
 In order to determine which colour channel was the clearest with respect to the identification of the chromatin dot characteristic to the parasitized cell, we plotted the images in different colour channels and in grayscale.
@@ -126,7 +156,7 @@ We experimented with colour model transformations, and noticed that some models 
 \end{figure}
 
 \subsubsection{Cluster Visualisation}
-To visualise them, the images were first resized to a 50x50 colour format, each pixel value rescaled by 1/255, and each image finally flattened to a 50*50*3 length array. We used Euclidean distance as the distance metric and used the t-SNE algorithm to reduce dimensions to 2. We also used KMeans clustering to determine similarity clusters, but there was no clear relation between the natural clusters and the clusters output by K-Means (figure 5).
+To visualise them, the images were first resized to a 50x50 colour format, each pixel value rescaled by 1/255, and each image finally flattened to a 50*50*3 length array. We used Euclidean distance as the distance metric and used the t-SNE algorithm to reduce dimensions to 2. We also used KMeans clustering to determine similarity clusters, but there was no clear relation between the natural clusters and the clusters output by K-Means (figure \ref{fig:tsne_vis}).
 
 \begin{figure}[t]
    \begin{center}
@@ -137,32 +167,51 @@ To visualise them, the images were first resized to a 50x50 colour format, each 
 \end{figure}
 
 \subsection{Preprocessing}
-The images were standardised to prespecified dimensions and colour model and each pixel scaled to a value between 0 and 1. 
-
-Most of the efforts were gone into identifying which colour transformation would be relevant for building better models, and for creating modules for transforming the data to the required format. We aim to explore more preprocessing methods after the mid-evaluation.
+The image data was read using Scikit-Image and each pixel value was scaled to a value between 0 and 1. The dimensions of each image were standardized to $25 \times 25$ to reduce computational complexity and VRAM requirements. Models were run using the standard RGB data which the datasets came in by default, and data transformed into the HSV format using Scikit-Image's $rgb2hsv$ function. Separate datasets were created and saved using Pickle for use. The datasets can be found \href{https://drive.google.com/drive/folders/1rKEHtQ_Sr2vU01yj_xC_ODwUp8QesxWY?usp=share_link}{here}.
 
 \subsection{Data Augmentation}
 
-Modules created for augmentation provide functionality similar to TensorFlow's ImageDataGenerator \cite{tensorflow_imagedatagen}, capable of random rotation, translation, scaling, random noise induction, colour space transformation, cropping, and denoising. We intend to use these to augment the data for model training.
+We augmented images using the Albumentations package \cite{info11020125} and applied the following transformations on the training data:
+\begin{enumerate}
+   \item Rotation (range : -90\textdegree to +90\textdegree)
+   \item Scaling: (range: 0.8 times to 1 times the original image size)
+   \item Vertical Flip (probability = 0.5)
+   \item Horizontal Flip (probability = 0.5)
+   \item Shear (range: -7.5\textdegree to 7.5\textdegree)
+   \item Gaussian Noise (Mean = 0, variance between 0.01 and 0.05)
+\end{enumerate}
 
-\subsection{Preliminary Models}
+The augmentations were applied after rescaling to $25 \times 25$ image dimensions. The image was padded with zeroes after the transformations.
 
-Some algorithms were implemented on unaugmented data. The 70\% of data was reserved for training, 15\% for validation and 15\% for testing. Hyperparameters were tuned based on results observed on the validation data and final evaluation done on the testing data. The images were resized to 25x25 dimensions and colour was preserved as RGB. For training, the images were flattened to a 25*25*3 array. Images which were ambiguous \cite{fuhadmalaria} were removed from the dataset, leaving us with 8770 parasitized and 8701 uninfected training images, 2392 parasitized and 2373 unparasitized images for the validation dataset, and 1970 parasitized and 1955 uninfected images for the test dataset. Data augmentation was not used, and we intend to develop it more after the mid-evaluation
+\subsection{Models}
+The dataset was split in a stratified manner into training, validation and test sets. 80\% of the samples were used for the training, 10\% for validation and the last 10\% for testing. A random seed value was used while splitting for reproducible results.
+
+Data augmentation was carried out by taking every image from the training set and generating two two randomly operated images, storing them in a separate array. 
+
+The training dataset had 20,601 images, the augmented testing had 41,202 images, validation set had 2,943 images and the testing set had 2,617 images. The same augmented dataset was used for training all the augmented data models.
+
+HSV conversion was carried out on all four datasets independently. As per the exploration and to reduce dimensionality, only the Saturation channel was used.
+
+Hyperparameters were tuned on the validation set and the model parameters were unchanged between the unaugmented and augmented datasets. Early-stopping and checkpointing was used in TensorFlow-based models. The best-performing weights were loaded after the training completed.
+
 
 \subsubsection{Naive Bayes}
-We used Gaussian Naive Bayes without prior weight initialisation.
+We used Gaussian Naive Bayes without prior weight initialisation. Naive Bayes served as a baseline for classification, and as will be observed later, performed the worst consistently.
 
 \subsubsection{Logistic regression}
-Logistic Regression was used with the default parameters.
+Logistic Regression was implemented in TensorFlow using the Keras API. The Adam optimiser was used with learning rate tuned as per the performance on the validation set. 
 
 \subsubsection{Decision trees}
-Decision trees provide explainable modelling and are very fast to inference with. A decision tree with Gini entropy as the criterion with a maximum depth of 4 was constructed.
+Decision trees provide explainable modelling and are very fast to inference with. The maximum depth was adjusted depending on the performance on the validation set.
 
 \subsubsection{XGBoost}
-XGBoost with GPU-acceleration was used, the maximum depth was limited to 5, a forest was created from 20 trees.
+XGBoost with GPU-acceleration was used and a forest of 20 trees was created. The maximum depth was a hyperparmeter and tuned according to performance on the validation set.
+
+\subsubsection{SVM}
+SVM was implemented using Scikit-Learn's implementation. Polynomial kernel with a degree of 3 was used for classification (default parameters).
 
 \subsubsection{CNNs}
-A basic convolutional neural network was implemented using TensorFlow. We intend to explore more on how the layers affect the model training and convergence
+A convolutional neural network was implemented in TensorFlow. The model architecture for the RGB and HSV datasets were different. The architecture of the CNN used for classifying the HSV images is shown in \ref{fig:cnn_architecture}
 
 \begin{figure}[t]
    \begin{center}
@@ -173,116 +222,131 @@ A basic convolutional neural network was implemented using TensorFlow. We intend
 \end{figure}
 
 \subsubsection{Transfer Learning}
-Some attempts were taken at transfer learning. We noticed that Xception performed reasonably well, coming close to the CNN, with 95\% validation accuracy. A resizing layer was added to the model which upscaled the dimension of the image to 72x72 from 25x25 to be compatible with Xception.
+We used the Xception model, trained on ImageNetperformed reasonably well. A resizing layer was added to the model which upscaled the dimension of the image to 72x72 from 25x25 to be compatible with the model. Unfortunately, the model required 3 input channels and it was not possible to use it for the HSV data.
 
 \section{Results and Analysis}
+The results are available in tables \ref{table:rgb_unaug}, \ref{table:rgb_aug}, \ref{table:hsv_unaug} and \ref{table:hsv_aug}.
 
-Below are prelimnary results on unaugmented datasets used for training across 6 different models. Hyperparameters were tuned based on the validation set, and the models tested on the test set. The results can be noted in tables 1, 2, 3 and 4, which correspond to accuracy, precision, recall and f1-score respectively. 
+We notice that among all models, the SVM model performs among the worst in all cases, followed by the Naive Bayes Classifier. It can be attributed to the classifier being unable to find a separating plane when the high dimensinal image data was compressed to the relatively low 3 dimensions.
+
+Another striking thing we notice is that besides the logistic regression classifier, none of the models performed well on the RGB augmented data. This could have been a result of the nature of transformations used. Many attempts were made to regenerate the augmentations, but to no avail. We attempted to recreate the scenario using TensorFlow's ImageDataGenerator using the same data as inputs and the same transformations, but there was no difference in results in training the CNN model. The model failed to converge yet again and resulted in bad performance overall. We hypothesize that it is caused due to the selection of augmentation functions, but that remains to be tested.
+
+The Saturation channel in the HSV conversion certainly made a noticeable impact. For the unaugmented dataset, the performance of the CNN and XGBoost increased, while that of Naive Bayes, Logistic Regression, Decision Tree, and SVM decreased. This is particularly interesting, as this gave us an almost 10\% performance increase for the XGBoost model and allowed the CNN model to match the accuracy of the top-performing models in this space.
+
+Going from the unaugmented to augmented HSV dataset, we observe a general decline in performance, while that of the CNN increased (with the same model parameters). This surpasses previously proposed models with respect to the precision, recall and f1 scores, and is almost able to match them in terms of model accuracy.
+
+The loss-curves for the CNN model can be seen in figures \ref{fig:cnn_rgb_losscurve}, \ref{fig:cnn_rgb_aug_losscurve}, \ref{fig:cnn_hsv_losscurve}, \ref{fig:cnn_hsv_aug_losscurve}. We notice some overfitting in \ref{fig:cnn_rgb_losscurve}, \ref{fig:cnn_hsv_losscurve}, and \ref{fig:cnn_hsv_aug_losscurve}, but the checkpointing and model reloading saves and reloads the best model, providing optimal results. Similar graphs were observed for the logistic learning and transfer-learning loss-curves.
+
+Finally, we created a GUI-based interface which uses trained models for inferencing the class of a cell image. The video can be found \href{https://drive.google.com/file/d/1PuiOddcjlm_IbtReFyz8v2K37MM5XqCo/view?usp=share_link}{\textbf{here}}.
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/loss-curves/CNN_unaug_losscurve.png}
+   \end{center}
+      \caption{Loss-accuracy curve of the CNN model trained on unaugmented RGB data.}
+   \label{fig:cnn_rgb_losscurve}
+\end{figure}
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/loss-curves/CNN_aug_losscurve.png}
+   \end{center}
+      \caption{Loss-accuracy curve of the CNN model trained on augmented RGB data.}
+   \label{fig:cnn_rgb_aug_losscurve}
+\end{figure}
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/loss-curves/CNN_unaug_losscurve_HSV.png}
+   \end{center}
+      \caption{Loss-accuracy curve of the CNN model trained on unaugmented HSV data.}
+   \label{fig:cnn_hsv_losscurve}
+\end{figure}
 
 
-\begin{table}[]
-   \begin{tabular}{|llll|}
-   \hline
-   \multicolumn{4}{|c|}{{\ul \textbf{Accuracy}}}                                                                                  \\ \hline
-   \multicolumn{1}{|l|}{Model}                        & \multicolumn{1}{l|}{Training} & \multicolumn{1}{l|}{Validation} & Testing \\ \hline
-   \multicolumn{1}{|l|}{Naive Bayes}                  & \multicolumn{1}{l|}{0.639}    & \multicolumn{1}{l|}{0.640}      & 0.632   \\ \hline
-   \multicolumn{1}{|l|}{Log. Reg.}          & \multicolumn{1}{l|}{0.750}    & \multicolumn{1}{l|}{0.709}      & 0.707   \\ \hline
-   \multicolumn{1}{|l|}{Decision Trees}               & \multicolumn{1}{l|}{0.704}    & \multicolumn{1}{l|}{0.702}      & 0.694   \\ \hline
-   \multicolumn{1}{|l|}{XGBoost}                      & \multicolumn{1}{l|}{0.974}    & \multicolumn{1}{l|}{0.865}      & 0.856   \\ \hline
-   \multicolumn{1}{|l|}{CNN}                          & \multicolumn{1}{l|}{0.991}    & \multicolumn{1}{l|}{0.991}      & 0.988   \\ \hline
-   \multicolumn{1}{|l|}{Trans. Learn.} & \multicolumn{1}{l|}{0.970}    & \multicolumn{1}{l|}{0.948}      & 0.953   \\ \hline
-   \end{tabular}
-
-   \caption{Accuracy}
-\end{table}
-
-\begin{table}[]
-   \begin{tabular}{|llll|}
-   \hline
-   \multicolumn{4}{|c|}{{\ul \textbf{Precision}}}                                                                   \\ \hline
-   \multicolumn{1}{|l|}{Model}          & \multicolumn{1}{l|}{Training} & \multicolumn{1}{l|}{Validation} & Testing \\ \hline
-   \multicolumn{1}{|l|}{Naive Bayes}    & \multicolumn{1}{l|}{0.685}    & \multicolumn{1}{l|}{0.683}      & 0.677   \\ \hline
-   \multicolumn{1}{|l|}{Log. Reg.}      & \multicolumn{1}{l|}{0.763}    & \multicolumn{1}{l|}{0.716}      & 0.720   \\ \hline
-   \multicolumn{1}{|l|}{Decision Trees} & \multicolumn{1}{l|}{0.740}    & \multicolumn{1}{l|}{0.737}      & 0.726   \\ \hline
-   \multicolumn{1}{|l|}{XGBoost}        & \multicolumn{1}{l|}{0.985}    & \multicolumn{1}{l|}{0.878}      & 0.869   \\ \hline
-   \multicolumn{1}{|l|}{CNN}            & \multicolumn{1}{l|}{0.996}    & \multicolumn{1}{l|}{0.995}      & 0.996   \\ \hline
-   \multicolumn{1}{|l|}{Trans. Learn.}  & \multicolumn{1}{l|}{0.971}    & \multicolumn{1}{l|}{0.946}      & 0.955   \\ \hline
-   \end{tabular}
-
-\caption{Precision}
-\end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage[normalem]{ulem}
-% \useunder{\uline}{\ul}{}
-\begin{table}[]
-   \begin{tabular}{|llll|}
-   \hline
-   \multicolumn{4}{|c|}{{\ul \textbf{Recall}}}                                                                      \\ \hline
-   \multicolumn{1}{|l|}{Model}          & \multicolumn{1}{l|}{Training} & \multicolumn{1}{l|}{Validation} & Testing \\ \hline
-   \multicolumn{1}{|l|}{Naive Bayes}    & \multicolumn{1}{l|}{0.512}    & \multicolumn{1}{l|}{0.529}      & 0.511   \\ \hline
-   \multicolumn{1}{|l|}{Log. Reg.}      & \multicolumn{1}{l|}{0.730}    & \multicolumn{1}{l|}{0.698}      & 0.679   \\ \hline
-   \multicolumn{1}{|l|}{Decision Trees} & \multicolumn{1}{l|}{0.634}    & \multicolumn{1}{l|}{0.639}      & 0.679   \\ \hline
-   \multicolumn{1}{|l|}{XGBoost}        & \multicolumn{1}{l|}{0.962}    & \multicolumn{1}{l|}{0.850}      & 0.839   \\ \hline
-   \multicolumn{1}{|l|}{CNN}            & \multicolumn{1}{l|}{0.986}    & \multicolumn{1}{l|}{0.986}      & 0.980   \\ \hline
-   \multicolumn{1}{|l|}{Trans. Learn.}  & \multicolumn{1}{l|}{0.970}    & \multicolumn{1}{l|}{0.952}      & 0.952   \\ \hline
-   \end{tabular}
-
-   \caption{Recall}
-\end{table}
-
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=1\linewidth]{../Plots/loss-curves/CNN_aug_losscurve_HSV.png}
+   \end{center}
+      \caption{Loss-accuracy curve of the CNN model trained on augmented HSV data.}
+   \label{fig:cnn_hsv_aug_losscurve}
+\end{figure}
 
 
 \begin{table}[]
-   \begin{tabular}{|llll|}
+   \begin{tabular}{|lllll|}
    \hline
-   \multicolumn{4}{|c|}{{\ul \textbf{F1-Score}}}                                                                    \\ \hline
-   \multicolumn{1}{|l|}{Model}          & \multicolumn{1}{l|}{Training} & \multicolumn{1}{l|}{Validation} & Testing \\ \hline
-   \multicolumn{1}{|l|}{Naive Bayes}    & \multicolumn{1}{l|}{0.591}    & \multicolumn{1}{l|}{0.596}      & 0.583   \\ \hline
-   \multicolumn{1}{|l|}{Log. Reg.}      & \multicolumn{1}{l|}{0.746}    & \multicolumn{1}{l|}{0.707}      & 0.699   \\ \hline
-   \multicolumn{1}{|l|}{Decision Trees} & \multicolumn{1}{l|}{0.683}    & \multicolumn{1}{l|}{0.679}      & 0.674   \\ \hline
-   \multicolumn{1}{|l|}{XGBoost}        & \multicolumn{1}{l|}{0.973}    & \multicolumn{1}{l|}{0.863}      & 0.854   \\ \hline
-   \multicolumn{1}{|l|}{CNN}            & \multicolumn{1}{l|}{0.991}    & \multicolumn{1}{l|}{0.990}      & 0.988   \\ \hline
-   \multicolumn{1}{|l|}{Trans. Learn.}  & \multicolumn{1}{l|}{0.971}    & \multicolumn{1}{l|}{0.949}      & 0.953   \\ \hline
+   \multicolumn{5}{|c|}{{\ul \textbf{RGB Unaugmented (Test Data)}}}                                                                                                  \\ \hline
+   \multicolumn{1}{|l|}{{\ul Model}}   & \multicolumn{1}{l|}{{\ul Acc.}} & \multicolumn{1}{l|}{{\ul Prec.}} & \multicolumn{1}{l|}{{\ul Rec.}} & {\ul F1} \\ \hline
+   \multicolumn{1}{|l|}{Naive Bayes}   & \multicolumn{1}{l|}{0.643}      & \multicolumn{1}{l|}{0.653}       & \multicolumn{1}{l|}{0.643}      & 0.638    \\ \hline
+   \multicolumn{1}{|l|}{Logistic Regression}     & \multicolumn{1}{l|}{0.694}      & \multicolumn{1}{l|}{0.694}       & \multicolumn{1}{l|}{0.694}      & 0.694    \\ \hline
+   \multicolumn{1}{|l|}{Decision Trees}            & \multicolumn{1}{l|}{0.684}      & \multicolumn{1}{l|}{0.687}       & \multicolumn{1}{l|}{0.684}      & 0.682    \\ \hline
+   \multicolumn{1}{|l|}{XGBoost}       & \multicolumn{1}{l|}{0.850}      & \multicolumn{1}{l|}{0.850}       & \multicolumn{1}{l|}{0.850}      & 0.850    \\ \hline
+   \multicolumn{1}{|l|}{SVM}           & \multicolumn{1}{l|}{0.518}      & \multicolumn{1}{l|}{0.550}       & \multicolumn{1}{l|}{0.516}      & 0.419    \\ \hline
+   \multicolumn{1}{|l|}{Transfer Learning} & \multicolumn{1}{l|}{0.955}      & \multicolumn{1}{l|}{0.956}       & \multicolumn{1}{l|}{0.955}      & 0.955    \\ \hline
+   \multicolumn{1}{|l|}{CNN}           & \multicolumn{1}{l|}{0.982}      & \multicolumn{1}{l|}{0.982}       & \multicolumn{1}{l|}{0.982}      & 0.982    \\ \hline
    \end{tabular}
-   \caption{F1-score}
+   \caption{Performance of models trained on  RGB Unaugmented training data}
+   \label{table:rgb_unaug}
 \end{table}
+
+\begin{table}[]
+   \begin{tabular}{|lllll|}
+   \hline
+   \multicolumn{5}{|c|}{{\ul \textbf{RGB Augmented (Test Data)}}}                                                                                                            \\ \hline
+   \multicolumn{1}{|l|}{{\ul Model}}         & \multicolumn{1}{l|}{{\ul Acc.}} & \multicolumn{1}{l|}{{\ul Prec.}} & \multicolumn{1}{l|}{{\ul Recall}} & {\ul F1} \\ \hline
+   \multicolumn{1}{|l|}{Naive Bayes}         & \multicolumn{1}{l|}{0.502}      & \multicolumn{1}{l|}{0.251}       & \multicolumn{1}{l|}{0.500}        & 0.334    \\ \hline
+   \multicolumn{1}{|l|}{Logistic Regression} & \multicolumn{1}{l|}{0.588}      & \multicolumn{1}{l|}{0.665}       & \multicolumn{1}{l|}{0.587}        & 0.532    \\ \hline
+   \multicolumn{1}{|l|}{Decision Trees}      & \multicolumn{1}{l|}{0.502}      & \multicolumn{1}{l|}{0.251}       & \multicolumn{1}{l|}{0.500}        & 0.334    \\ \hline
+   \multicolumn{1}{|l|}{XGBoost}             & \multicolumn{1}{l|}{0.498}      & \multicolumn{1}{l|}{0.249}       & \multicolumn{1}{l|}{0.500}        & 0.332    \\ \hline
+   \multicolumn{1}{|l|}{SVM}                 & \multicolumn{1}{l|}{0.498}      & \multicolumn{1}{l|}{0.249}       & \multicolumn{1}{l|}{0.500}        & 0.332    \\ \hline
+   \multicolumn{1}{|l|}{Transfer Learning}       & \multicolumn{1}{l|}{0.502}      & \multicolumn{1}{l|}{0.251}       & \multicolumn{1}{l|}{0.500}        & 0.334    \\ \hline
+   \multicolumn{1}{|l|}{CNN}                 & \multicolumn{1}{l|}{0.502}      & \multicolumn{1}{l|}{0.251}       & \multicolumn{1}{l|}{0.500}        & 0.334    \\ \hline
+   \end{tabular}
+   \caption{Performance of models trained on augmented training data in the RGB domain.}
+   \label{table:rgb_aug}
+\end{table}
+
+\begin{table}[]
+   \begin{tabular}{|lllll|}
+   \hline
+   \multicolumn{5}{|c|}{{\ul \textbf{HSV Unaugmented (Test Data)}}}                                                                                                          \\ \hline
+   \multicolumn{1}{|l|}{{\ul Model}}         & \multicolumn{1}{l|}{{\ul Acc.}} & \multicolumn{1}{l|}{{\ul Prec.}} & \multicolumn{1}{l|}{{\ul Recall}} & {\ul F1} \\ \hline
+   \multicolumn{1}{|l|}{Naive Bayes}         & \multicolumn{1}{l|}{0.624}      & \multicolumn{1}{l|}{0.624}       & \multicolumn{1}{l|}{0.623}        & 0.623    \\ \hline
+   \multicolumn{1}{|l|}{Logistic Regression} & \multicolumn{1}{l|}{0.677}      & \multicolumn{1}{l|}{0.677}       & \multicolumn{1}{l|}{0.677}        & 0.677    \\ \hline
+   \multicolumn{1}{|l|}{Decision Trees}      & \multicolumn{1}{l|}{0.675}      & \multicolumn{1}{l|}{0.678}       & \multicolumn{1}{l|}{0.675}        & 0.674    \\ \hline
+   \multicolumn{1}{|l|}{XGBoost}             & \multicolumn{1}{l|}{0.938}      & \multicolumn{1}{l|}{0.939}       & \multicolumn{1}{l|}{0.938}        & 0.938    \\ \hline
+   \multicolumn{1}{|l|}{SVM}                 & \multicolumn{1}{l|}{0.502}      & \multicolumn{1}{l|}{0.251}       & \multicolumn{1}{l|}{0.500}        & 0.334    \\ \hline
+   \multicolumn{1}{|l|}{CNN}                 & \multicolumn{1}{l|}{0.993}      & \multicolumn{1}{l|}{0.993}       & \multicolumn{1}{l|}{0.993}        & 0.993    \\ \hline
+   \end{tabular}
+   \caption{Performance of models trained on the saturation dimension training data converted into the HSV domain.}
+   \label{table:hsv_unaug}
+\end{table}
+
+
+\begin{table}[]
+   \begin{tabular}{|lllll|}
+   \hline
+   \multicolumn{5}{|c|}{{\ul \textbf{HSV Augmented (Test Data)}}}                                                                                                            \\ \hline
+   \multicolumn{1}{|l|}{{\ul Model}}         & \multicolumn{1}{l|}{{\ul Acc.}} & \multicolumn{1}{l|}{{\ul Prec.}} & \multicolumn{1}{l|}{{\ul Recall}} & {\ul F1} \\ \hline
+   \multicolumn{1}{|l|}{Naive Bayes}         & \multicolumn{1}{l|}{0.618}      & \multicolumn{1}{l|}{0.624}       & \multicolumn{1}{l|}{0.617}        & 0.611    \\ \hline
+   \multicolumn{1}{|l|}{Logistic Regression} & \multicolumn{1}{l|}{0.625}      & \multicolumn{1}{l|}{0.627}       & \multicolumn{1}{l|}{0.625}        & 0.623    \\ \hline
+   \multicolumn{1}{|l|}{Decision Trees}      & \multicolumn{1}{l|}{0.789}      & \multicolumn{1}{l|}{0.819}       & \multicolumn{1}{l|}{0.789}        & 0.784    \\ \hline
+   \multicolumn{1}{|l|}{XGBoost}             & \multicolumn{1}{l|}{0.930}      & \multicolumn{1}{l|}{0.931}       & \multicolumn{1}{l|}{0.930}        & 0.930    \\ \hline
+   \multicolumn{1}{|l|}{SVM}                 & \multicolumn{1}{l|}{0.501}      & \multicolumn{1}{l|}{0.251}       & \multicolumn{1}{l|}{0.499}        & 0.334    \\ \hline
+   \multicolumn{1}{|l|}{CNN}                 & \multicolumn{1}{l|}{0.994}      & \multicolumn{1}{l|}{0.994}       & \multicolumn{1}{l|}{0.994}        & 0.994    \\ \hline
+   \end{tabular}
+   \caption{Performance of models trained on the saturation domain of augmented images converted to the HSV domain.}
+   \label{table:hsv_aug}
+   \end{table}
 
 \section{Conclusion}
+%TODO
+We first notice the sheer strength of the CNN-based models. They are consistently at the top of the charts (excepting the outlier RGB-augmented data, on which no model could get properly trained).
 
-We notice that the CNN model has the best performance when it comes to accuracy, precision, recall and f1-score and shows low bias and low variance. Meanwhile, the XGBoost model performs extremely well on the training set, but fails to perform as well on the validation and test sets, indicating high variance. The rest of the models: Naive Bayes, Logistic Regression and Decision trees portray high bias and low variance. 
+We also notice that the HSV colour transformation helps with the CNN and XGBoost models, both of which shot up in accuracy significantly. The XGBoost model is said to be a powerful tool and it made it clear here.
 
-Image space transformations can accentuate features and we intend to explore more regarding that.
-
-
-\subsection{Remaining Tasks}
-
-We intend to evaluate models on images of varying sizes, from 25x25 to 100x100. We also aim to apply dataset augmentation techniques and nonlinear colour space transformations (eg. RGB to HSV) and determine their impact, while tuning the models further, implementing more architectures and determining optimal hyperparameters. We will explore rule-based thresholding for identifying clustered points. Finally, we will attempt wholeslide image segmentation to isolate RBCs, if time permits.
-
-
-\subsection{Learnings}
-
-We learnt the importance of literature reviews, which informed us of the latest developments and about the discrepancy in labelling of the dataset \cite{fuhadmalaria}. Non-linear image space transformations can allow for better feature extraction. We also learnt about working with image datasets, what goes into their preprocessing, how to feed them as data to train models.
-
-\subsection{Individual Contributions}
-
-Individual contributions can be found in table 5.
-% Please add the following required packages to your document preamble:
-% \usepackage[normalem]{ulem}
-% \useunder{\uline}{\ul}{}
-\begin{table}[]
-   \begin{tabular}{ll}
-   \multicolumn{2}{c}{{\ul \textbf{Individual contribution}}}                        \\ \hline
-   \multicolumn{1}{|l|}{{\ul Name}} & \multicolumn{1}{l|}{{\ul Contribution}}        \\ \hline
-   \multicolumn{1}{|l|}{Harshit}    & \multicolumn{1}{l|}{EDA, Testing mod.}         \\ \hline
-   \multicolumn{1}{|l|}{Madhava}    & \multicolumn{1}{l|}{EDA, Modelling, data mod.} \\ \hline
-   \multicolumn{1}{|l|}{Shreya}     & \multicolumn{1}{l|}{Lit. review, Data aug.}    \\ \hline
-   \multicolumn{1}{|l|}{Srishti}    & \multicolumn{1}{l|}{Data aug. , lit. review}   \\ \hline
-   \end{tabular}
-
-   \caption{Individual Contributions}
-\end{table}
-
+The role of augmentations remains vague with the amount of testing done so far, with CNN models performing slightly better than before using them, but not by a significant margin. The values and kinds of transformations used for augmenting the data must be carefully determined so as to prohibit scenarios like the lack of convergence.
 
 
 %-------------------------------------------------------------------------
